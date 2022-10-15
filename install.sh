@@ -1,2 +1,3 @@
-# init.vim とハードリンク
-ln -s ~/dotfiles/.config/nvim/init.vim ~/.config/nvim
+# init.vim
+rm ~/.config/nvim/init.vim
+ln -s ~/dotfiles/init.vim ~/.config/nvim
