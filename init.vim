@@ -1,4 +1,6 @@
-autocmd InsertLeave * :silent !/opt/homebrew/bin/im-select com.apple.inputmethod.Kotoeri.RomajiTyping.Roman
+if has('mac')
+	autocmd InsertLeave * :silent !/opt/homebrew/bin/im-select com.apple.inputmethod.Kotoeri.RomajiTyping.Roman
+endif
 
 " VSCode Neovim でのみの設定
 if exists('g:vscode')
