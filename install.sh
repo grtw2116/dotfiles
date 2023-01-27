@@ -1,12 +1,12 @@
 #!/bin/bash
 
-FILE="~/.config/nvim/init.vim"
-if [ ! -f $FILE ]; then
+NVIM_FILE="~/.config/nvim/init.vim"
+if [ ! -f $NVIM_FILE ]; then
 	mkdir -p ~/.config/nvim
 	ln -s ~/dotfiles/init.vim ~/.config/nvim
 fi
 
-FILE="~/.latexmkrc"
-if [ ! -f $FILE ]; then
+LATEXMK_FILE="~/.latexmkrc"
+if [ ! -f $LATEXMK_FILE ]; then
 	ln -s ~/dotfiles/.latexmkrc ~/.latexmkrc
 fi
