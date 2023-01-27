@@ -1,6 +1,9 @@
 " クリップボード同期（正確には，無名レジスタの内容がクリップボードに自動コピーされる）
 set clipboard=unnamed
 
+" <LocalLeader>キー変更
+map setlocalleader = ","
+
 " ====================
 "     mac向け設定
 " ====================
@@ -26,9 +29,3 @@ call plug#end()
 
 " 構文関連の機能をONにするための設定．これがないとVimTeXの一部の機能が動作しない．
 syntax enable
-
-" ビューワーの指定
-let g:vimtex_view_method = 'zathura'
-
-" vim の localleader に関する設定
-let maplocalleader = ','
