@@ -2,7 +2,7 @@
 set clipboard=unnamed
 
 " <LocalLeader>キー変更
-let setlocalleader = ","
+let maplocalleader = ","
 
 " ====================
 "     mac向け設定
