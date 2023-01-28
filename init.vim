@@ -92,9 +92,5 @@ let g:vimtex_quickfix_open_on_warning = 0
 if has('mac')
     " PDFビューワーをSkimに変更
     let g:vimtex_view_method = 'skim'
-else
-    " PDFビューワーをOkularに変更
-    let g:vimtex_view_method = 'okular'
-
 endif
 
