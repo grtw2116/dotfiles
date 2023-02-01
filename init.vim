@@ -92,5 +92,10 @@ let g:vimtex_quickfix_open_on_warning = 0
 if has('mac')
     " PDFビューワーをSkimに変更
     let g:vimtex_view_method = 'skim'
+else
+    " PDFビューワーをSumatraPDFに変更
+    let g:vimtex_view_general_viewer = '/mnt/c/Users/taru0/Appdata/Local/SumatraPDF/SumatraPDF.exe'
+    let g:vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
+    let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 endif
 
