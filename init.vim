@@ -85,6 +85,9 @@ map <C-n> :NERDTreeToggle<CR>
 " Powerlineフォントを使う
 let g:airline_powerline_fonts = 1
 
+" タブ機能を有効化
+let g:airline#extensions#tabline#enabled = 1
+
 
 
 " ====================
