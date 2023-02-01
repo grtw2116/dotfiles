@@ -70,11 +70,23 @@ call plug#end()
 
 
 " ====================
+"   nerdtreeの設定
+" ====================
+
+" :NERDTreeToggleを<C-n>に割り当てる
+map <C-n> :NERDTreeToggle<CR>
+
+
+
+" ====================
 "  vim-airlineの設定
 " ====================
 
 " Powerlineフォントを使う
 let g:airline_powerline_fonts = 1
+
+" タブ機能を有効化
+let g:airline#extensions#tabline#enabled = 1
 
 
 
