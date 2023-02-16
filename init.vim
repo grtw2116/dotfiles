@@ -27,6 +27,7 @@ set autoindent
 set smartindent
 
 
+
 " ====================
 "     mac向け設定
 " ====================
@@ -68,6 +69,9 @@ Plug 'tpope/vim-fugitive'
 " 非同期のコード校正（Asynchronous Lint Engineの略）
 Plug 'dense-analysis/ale'
 
+" Icebergのテーマ
+Plug 'cocopon/iceberg.vim'
+
 call plug#end()
 
 
@@ -78,6 +82,18 @@ call plug#end()
 
 " :NERDTreeToggleを<C-n>に割り当てる
 map <C-n> :NERDTreeToggle<CR>
+
+
+
+" ====================
+"   icebergの設定
+" ====================
+" カラースキームをicebergに変更
+colorscheme iceberg
+set background=dark
+
+" True Color（24bit色表示）に対応させる
+set termguicolors
 
 
 
@@ -114,6 +130,14 @@ else
     let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 endif
 
+
+
+" ====================
+"   aleの設定
+" ====================
+
+" LaTeXの校正を設定
+let g:ale_linters = { 'latex': ['textlint'] }
 
 
 " ====================
