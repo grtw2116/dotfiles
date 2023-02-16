@@ -65,6 +65,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " VimでGitを操る
 Plug 'tpope/vim-fugitive'
 
+" 非同期のコード校正（Asynchronous Lint Engineの略）
+Plug 'dense-analysis/ale'
+
 call plug#end()
 
 
