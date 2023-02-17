@@ -127,7 +127,6 @@ else
     " PDFビューワーをSumatraPDFに変更
     let g:vimtex_view_general_viewer = '/mnt/c/Users/taru0/Appdata/Local/SumatraPDF/SumatraPDF.exe'
     let g:vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
-    let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 endif
 
 
