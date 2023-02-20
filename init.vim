@@ -60,9 +60,6 @@ Plug 'vim-airline/vim-airline-themes'
 " ファイルエクスプローラ窓を追加
 Plug 'preservim/nerdtree'
 
-" LSP等に対応させる
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 " VimでGitを操る
 Plug 'tpope/vim-fugitive'
 
@@ -138,21 +135,3 @@ endif
 " LaTeXの校正を設定
 let g:ale_linters = { 'latex': ['textlint'] }
 
-
-" ====================
-"     coc-nvimの設定
-" ====================
-
-" <CR>で補完を決定
-inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
-
-" <Tab>で補完を選択
-function! CheckBackspace() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1] =~# '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-    \ coc#pum#visible() ? coc#pum#next(1) :
-    \ CheckBackspace() ? "\<Tab>" :
-    \ coc#refresh()
