@@ -44,31 +44,18 @@ endif
 " ===============================
 
 call plug#begin()
-" 囲う処理がしやすくなる
-Plug 'tpope/vim-surround'
-
-" コメントアウト等の処理がしやすくなる
-Plug 'tpope/vim-commentary'
-
-" Tex / LaTeX 向けプラグイン
-Plug 'lervag/vimtex'
-
-" ステータスバーをかっこよくする
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-" ファイルエクスプローラ窓を追加
-Plug 'preservim/nerdtree'
-
-" VimでGitを操る
-Plug 'tpope/vim-fugitive'
-
-" 非同期のコード校正（Asynchronous Lint Engineの略）
-Plug 'dense-analysis/ale'
-
-" Icebergのテーマ
-Plug 'cocopon/iceberg.vim'
-
+" Plug 'tpope/vim-surround'                           " 囲う処理がしやすくなる
+" Plug 'tpope/vim-commentary'                         " コメントアウト等の処理がしやすくなる
+" Plug 'lervag/vimtex'                                " Tex / LaTeX 向けプラグイン
+" Plug 'vim-airline/vim-airline'                      " ステータスバーをかっこよくする
+" Plug 'vim-airline/vim-airline-themes'               " vim-airline用テーマ
+" Plug 'preservim/nerdtree'                           " ファイラー画面を追加
+" Plug 'tpope/vim-fugitive'                           " VimからGitを操作
+" Plug 'dense-analysis/ale'                           " 非同期の校正エンジン
+" Plug 'cocopon/iceberg.vim'                          " Icebergテーマ
+" Plug 'neovim/nvim-lspconfig'                        " Neovim公式のLSP設定
+" Plug 'williamboman/mason.nvim'                      " LSPサーバのパッケージマネージャ
+" Plug 'williamboman/mason-lspconfig.nvim'            " neovim/nvim-lspconfigとmasonの橋渡し
 call plug#end()
 
 
@@ -135,3 +122,14 @@ endif
 " LaTeXの校正を設定
 let g:ale_linters = { 'latex': ['textlint'] }
 
+
+" ====================
+"     mason
+" ====================
+
+lua << EOF
+
+    require("mason").setup()
+    require("mason-lspconfig").setup()
+
+EOF
