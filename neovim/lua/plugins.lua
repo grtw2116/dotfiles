@@ -1,11 +1,11 @@
 -- プラグイン設定
 require('packer').startup(function(use)
     -- プラグインマネージャ
-	use 'wbthomason/packer.nvim'        			   -- Lua製プラグインマネージャ
+    use 'wbthomason/packer.nvim' -- Lua製プラグインマネージャ
 
     -- テキスト操作
-	use 'tpope/vim-surround'                           -- 囲う処理がしやすくなる
-	use 'tpope/vim-commentary'                         -- コメントアウト等の処理がしやすくなる
+    use 'tpope/vim-surround' -- 囲う処理がしやすくなる
+    use 'tpope/vim-commentary' -- コメントアウト等の処理がしやすくなる
 
     -- ステータスバー
     use {
@@ -16,64 +16,71 @@ require('packer').startup(function(use)
     }
 
     -- ファイラー
-	use {
-		'nvim-tree/nvim-tree.lua',
-		requires = {
-			'nvim-tree/nvim-web-devicons'
-		}
-	}
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons'
+        }
+    }
 
     -- Git
-	use 'tpope/vim-fugitive'                           -- VimからGitを操作
+    use 'tpope/vim-fugitive' -- VimからGitを操作
 
     -- 文章
-	use 'lervag/vimtex'                                -- Tex / LaTeX 向けプラグイン
-	use 'dense-analysis/ale'                           -- 非同期の校正エンジン
+    use 'lervag/vimtex' -- Tex / LaTeX 向けプラグイン
+    use 'dense-analysis/ale' -- 非同期の校正エンジン
 
     -- カラーテーマ
-	use 'cocopon/iceberg.vim'                          -- Icebergテーマ
+    use 'cocopon/iceberg.vim' -- Icebergテーマ
 
     -- LSP
-	use 'neovim/nvim-lspconfig'                        -- Neovim公式のLSP設定
-	use 'williamboman/mason.nvim'                      -- LSPサーバのパッケージマネージャ
-	use 'williamboman/mason-lspconfig.nvim'            -- neovim/nvim-lspconfigとmasonの橋渡し
+    use 'neovim/nvim-lspconfig' -- Neovim公式のLSP設定
+    use 'williamboman/mason.nvim' -- LSPサーバのパッケージマネージャ
+    use 'williamboman/mason-lspconfig.nvim' -- neovim/nvim-lspconfigとmasonの橋渡し
 
     -- スニペット
-    use 'hrsh7th/vim-vsnip'                            -- スニペット
+    use 'hrsh7th/vim-vsnip' -- スニペット
 
     -- 自動補完
-    use 'hrsh7th/nvim-cmp'                             -- 自動補完
-    use 'hrsh7th/cmp-nvim-lsp'                         -- LSPから補完をフェッチ
-    use 'hrsh7th/cmp-buffer'                           -- バッファから補完をフェッチ
-    use 'hrsh7th/cmp-path'                             -- パスから補完をフェッチ
-    use 'hrsh7th/cmp-cmdline'                          -- コマンドラインから補完をフェッチ
-    use 'hrsh7th/cmp-vsnip'                            -- スニペットから補完をフェッチ
+    use 'hrsh7th/nvim-cmp' -- 自動補完
+    use 'hrsh7th/cmp-nvim-lsp' -- LSPから補完をフェッチ
+    use 'hrsh7th/cmp-buffer' -- バッファから補完をフェッチ
+    use 'hrsh7th/cmp-path' -- パスから補完をフェッチ
+    use 'hrsh7th/cmp-cmdline' -- コマンドラインから補完をフェッチ
+    use 'hrsh7th/cmp-vsnip' -- スニペットから補完をフェッチ
 
     -- 構文ハイライト
     use {
-        'nvim-treesitter/nvim-treesitter',             -- ツリーシッター
+        'nvim-treesitter/nvim-treesitter', -- ツリーシッター
         run = ':TSUpdate'
+    }
+
+    -- ファジーファインダー
+    use {
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.1',
+        requires = { { 'nvim-lua/plenary.nvim' } }
     }
 end)
 
 -- nvim-tree設定
-vim.g.loaded_netrw = 1                                 -- netrw（Vim純正ファイラ）を無効化
-vim.g.loaded_netrwPlugin = 1                           -- netrw（Vim純正ファイラ）を無効化
+vim.g.loaded_netrw = 1 -- netrw（Vim純正ファイラ）を無効化
+vim.g.loaded_netrwPlugin = 1 -- netrw（Vim純正ファイラ）を無効化
 
-vim.opt.termguicolors = true                           -- GUIカラーを有効化
+vim.opt.termguicolors = true -- GUIカラーを有効化
 
-vim.keymap.set(                                        -- :NvimTreeToggleを<C-n>に割り当てる
+vim.keymap.set( -- :NvimTreeToggleを<C-n>に割り当てる
     'n',
     '<C-n>',
     ':NvimTreeToggle<CR>'
 )
 
-require("nvim-tree").setup()                           -- デフォルト設定を読み込み
+require("nvim-tree").setup() -- デフォルト設定を読み込み
 
 -- lualine設定
 require('lualine').setup({
     options = {
-        theme = 'iceberg'                              -- テーマをicebergに変更
+        theme = 'iceberg' -- テーマをicebergに変更
     }
 })
 
@@ -88,7 +95,7 @@ require('mason-lspconfig').setup()
 
 
 -- 共通オプション
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 
 -- <space>e: 診断画面を開く
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
@@ -109,7 +116,7 @@ local on_attach = function(client, bufnr)
     -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- 共通オプション
-    local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
     -- K: カーソル下シンボルの情報を表示
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -199,7 +206,7 @@ require('nvim-treesitter.configs').setup {
         enable = true,
 
         -- この設定を true にするとパーサ未インストールの言語だと代わりに vim 標準のハイライトが有効になる
-        -- 
+        --
         -- 重複等が起きるため重くなる
         additional_vim_regex_highlighting = false
     },
