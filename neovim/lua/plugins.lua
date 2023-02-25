@@ -164,21 +164,13 @@ end
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- LSPサーバ読み込み
--- on_attach設定はサーバごとに必要
-require('lspconfig').texlab.setup {
-    on_attach = on_attach,
-    capabilities = capabilities
-}
-
-require('lspconfig').rust_analyzer.setup {
-    on_attach = on_attach,
-    capabilities = capabilities
-}
-
-require('lspconfig').lua_ls.setup {
-    on_attach = on_attach,
-    capabilities = capabilities
-}
+local lsp_servers = { "texlab", "rust_analyzer", "lua_ls", "bashls" }
+for i, name in ipairs(lsp_servers) do
+    require("lspconfig")[name].setup {
+        on_attach = on_attach,
+        capabilities = capabilities
+    }
+end
 
 -- nvim-cmp設定
 local cmp = require("cmp")
