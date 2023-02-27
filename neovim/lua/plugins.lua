@@ -203,3 +203,10 @@ require('nvim-treesitter.configs').setup {
         additional_vim_regex_highlighting = false
     },
 }
+
+-- telescope設定
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>ff", builtin.find_files, {})           -- <leader>ff: ファイルを検索
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})            -- <leader>fg: 
+vim.keymap.set("n", "<leader>fb", builtin.buffers, {})              -- <leader>fb:
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})            -- <leader>fh:
