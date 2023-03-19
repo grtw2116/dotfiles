@@ -88,7 +88,15 @@ require('lualine').setup({
 vim.cmd 'colorscheme iceberg'
 
 -- mason設定
-require('mason').setup()
+require('mason').setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+})
 require('mason-lspconfig').setup()
 
 -- LSP設定
