@@ -62,6 +62,8 @@ require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 end)
+-- vimtex設定
+vim.g.vimtex_view_method = 'skim'
 
 -- nvim-tree設定
 vim.g.loaded_netrw = 1 -- netrw（Vim純正ファイラ）を無効化
