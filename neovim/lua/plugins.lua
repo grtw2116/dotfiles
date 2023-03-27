@@ -61,7 +61,11 @@ require('packer').startup(function(use)
         tag = '0.1.1',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+
+    -- 移動系プラグイン
+    use 'unblevable/quick-scope'
 end)
+
 -- vimtex設定
 vim.g.vimtex_view_method = 'skim'
 
