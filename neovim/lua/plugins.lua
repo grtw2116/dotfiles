@@ -61,6 +61,9 @@ require('packer').startup(function(use)
         tag = '0.1.1',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+
+    -- カラーコードを色付け
+    use 'norcalli/nvim-colorizer.lua'
 end)
 -- vimtex設定
 vim.g.vimtex_view_method = 'skim'
