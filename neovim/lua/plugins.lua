@@ -209,17 +209,15 @@ cmp.setup({
 require('nvim-treesitter.configs').setup {
     highlight = {
         enable = true,
-
-        -- この設定を true にするとパーサ未インストールの言語だと代わりに vim 標準のハイライトが有効になる
-        --
-        -- 重複等が起きるため重くなる
-        additional_vim_regex_highlighting = false
     },
+    ensure_installed = 'all' -- 全言語のパーサーを自動でインストール
 }
 
 -- telescope設定
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, {})           -- <leader>ff: ファイルを検索
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})            -- <leader>fg: 
+vim.keymap.set("n", "<C-p>", builtin.find_files, {})                -- <C-p>: ファイル名から検索
+vim.keymap.set("n", "<C-g>", builtin.live_grep, {})                 -- <C-g>: ファイル内の文字列から検索
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})              -- <leader>fb:
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})            -- <leader>fh:
+
+require('colorizer').setup()
