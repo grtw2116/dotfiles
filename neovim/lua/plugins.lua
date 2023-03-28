@@ -4,7 +4,7 @@ require('packer').startup(function(use)
     use 'wbthomason/packer.nvim' -- Lua製プラグインマネージャ
 
     -- テキスト操作
-    use 'tpope/vim-surround' -- 囲う処理がしやすくなる
+    use 'tpope/vim-surround'   -- 囲う処理がしやすくなる
     use 'tpope/vim-commentary' -- コメントアウト等の処理がしやすくなる
 
     -- ステータスバー
@@ -27,27 +27,29 @@ require('packer').startup(function(use)
     use 'tpope/vim-fugitive' -- VimからGitを操作
 
     -- 文章
-    use 'lervag/vimtex' -- Tex / LaTeX 向けプラグイン
+    use 'lervag/vimtex'      -- Tex / LaTeX 向けプラグイン
     use 'dense-analysis/ale' -- 非同期の校正エンジン
 
     -- カラーテーマ
     use 'cocopon/iceberg.vim' -- Icebergテーマ
 
     -- LSP
-    use 'neovim/nvim-lspconfig' -- Neovim公式のLSP設定
-    use 'williamboman/mason.nvim' -- LSPサーバのパッケージマネージャ
+    use 'neovim/nvim-lspconfig'             -- Neovim公式のLSP設定
+    use 'williamboman/mason.nvim'           -- LSPサーバのパッケージマネージャ
     use 'williamboman/mason-lspconfig.nvim' -- neovim/nvim-lspconfigとmasonの橋渡し
 
     -- スニペット
     use 'hrsh7th/vim-vsnip' -- スニペット
 
     -- 自動補完
-    use 'hrsh7th/nvim-cmp' -- 自動補完
-    use 'hrsh7th/cmp-nvim-lsp' -- LSPから補完をフェッチ
-    use 'hrsh7th/cmp-buffer' -- バッファから補完をフェッチ
-    use 'hrsh7th/cmp-path' -- パスから補完をフェッチ
-    use 'hrsh7th/cmp-cmdline' -- コマンドラインから補完をフェッチ
-    use 'hrsh7th/cmp-vsnip' -- スニペットから補完をフェッチ
+    use 'hrsh7th/nvim-cmp'                    -- 自動補完
+    use 'hrsh7th/cmp-nvim-lsp'                -- LSPから補完をフェッチ
+    use 'hrsh7th/cmp-nvim-lsp-signature-help' -- 関数入力時にその関数のシグネチャを表示
+    use 'hrsh7th/cmp-buffer'                  -- バッファから補完をフェッチ
+    use 'hrsh7th/cmp-path'                    -- パスから補完をフェッチ
+    use 'hrsh7th/cmp-cmdline'                 -- コマンドラインから補完をフェッチ
+    use 'hrsh7th/cmp-vsnip'                   -- スニペットから補完をフェッチ
+    use 'hrsh7th/cmp-nvim-lua'                -- NeovimのLua APIからフェッチ
 
     -- 構文ハイライト
     use {
@@ -72,12 +74,12 @@ end)
 vim.g.vimtex_view_method = 'skim'
 
 -- nvim-tree設定
-vim.g.loaded_netrw = 1 -- netrw（Vim純正ファイラ）を無効化
+vim.g.loaded_netrw = 1       -- netrw（Vim純正ファイラ）を無効化
 vim.g.loaded_netrwPlugin = 1 -- netrw（Vim純正ファイラ）を無効化
 
 vim.opt.termguicolors = true -- GUIカラーを有効化
 
-vim.keymap.set( -- :NvimTreeToggleを<C-n>に割り当てる
+vim.keymap.set(              -- :NvimTreeToggleを<C-n>に割り当てる
     'n',
     '<C-n>',
     ':NvimTreeToggle<CR>'
@@ -125,8 +127,32 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 -- <space>q: 画面の場所を変える？
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
+-- nvim-cmp設定
+local cmp = require("cmp")
+cmp.setup({
+    snippet = {
+        expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body)
+        end,
+    },
+    sources = {
+        { name = "nvim_lsp" },
+        { name = "nvim_lsp_signature_help" },
+        { name = "buffer" },
+        { name = "path" },
+        { name = "nvim_lua" },
+    },
+    mapping = cmp.mapping.preset.insert({
+        ["<C-p>"] = cmp.mapping.select_prev_item(),
+        ["<C-n>"] = cmp.mapping.select_next_item(),
+        ["<C-l>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.abort(),
+        ["<CR>"] = cmp.mapping.confirm { select = true },
+    })
+})
+
 -- on_attach: LSP起動時に実行される
--- つまりLSP起動時のみ有効にしたい設定を記述する
+-- つまりLSP起動時のみ上書きしたい設定を記述する
 local on_attach = function(client, bufnr)
     -- <C-x><C-o>で補完を開く
     -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -188,26 +214,6 @@ for i, name in ipairs(lsp_servers) do
     }
 end
 
--- nvim-cmp設定
-local cmp = require("cmp")
-cmp.setup({
-    snippet = {
-        expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
-        end,
-    },
-    sources = {
-        { name = "nvim_lsp" },
-    },
-    mapping = cmp.mapping.preset.insert({
-        ["<C-p>"] = cmp.mapping.select_prev_item(),
-        ["<C-n>"] = cmp.mapping.select_next_item(),
-        ["<C-l>"] = cmp.mapping.complete(),
-        ["<C-e>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping.confirm { select = true },
-    })
-})
-
 -- treesitter設定
 require('nvim-treesitter.configs').setup {
     highlight = {
@@ -218,9 +224,9 @@ require('nvim-treesitter.configs').setup {
 
 -- telescope設定
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<C-p>", builtin.find_files, {})                -- <C-p>: ファイル名から検索
-vim.keymap.set("n", "<C-g>", builtin.live_grep, {})                 -- <C-g>: ファイル内の文字列から検索
-vim.keymap.set("n", "<leader>fb", builtin.buffers, {})              -- <leader>fb:
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})            -- <leader>fh:
+vim.keymap.set("n", "<C-p>", builtin.find_files, {})     -- <C-p>: ファイル名から検索
+vim.keymap.set("n", "<C-g>", builtin.live_grep, {})      -- <C-g>: ファイル内の文字列から検索
+vim.keymap.set("n", "<leader>fb", builtin.buffers, {})   -- <leader>fb:
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, {}) -- <leader>fh:
 
 require('colorizer').setup()
