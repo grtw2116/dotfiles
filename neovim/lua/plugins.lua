@@ -64,7 +64,10 @@ require('packer').startup(function(use)
 
     -- カラーコードを色付け
     use 'norcalli/nvim-colorizer.lua'
+    -- 移動系プラグイン
+    use 'unblevable/quick-scope'
 end)
+
 -- vimtex設定
 vim.g.vimtex_view_method = 'skim'
 
