@@ -5,3 +5,6 @@ compinit
 # プロンプトテーマの自動ロード
 autoload -Uz promptinit
 promptinit
+
+# dotfilesへのエイリアス
+alias nvimconfig='cd ~/Developer/dotfiles/neovim/'
