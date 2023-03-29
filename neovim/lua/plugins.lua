@@ -64,6 +64,9 @@ require('packer').startup(function(use)
 
     -- 移動系プラグイン
     use 'unblevable/quick-scope'
+
+    -- タグ自動挿入
+    use 'windwp/nvim-ts-autotag'
 end)
 
 -- vimtex設定
@@ -216,6 +219,9 @@ require('nvim-treesitter.configs').setup {
         -- 重複等が起きるため重くなる
         additional_vim_regex_highlighting = false
     },
+    autotag = {
+        enable = true,
+    }
 }
 
 -- telescope設定
