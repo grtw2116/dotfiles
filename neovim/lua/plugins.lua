@@ -206,7 +206,7 @@ end
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- LSPサーバ読み込み
-local lsp_servers = { "texlab", "rust_analyzer", "lua_ls", "bashls", "tsserver" }
+local lsp_servers = { "texlab", "rust_analyzer", "lua_ls", "bashls", "tsserver", "jdtls" }
 for i, name in ipairs(lsp_servers) do
     require("lspconfig")[name].setup {
         on_attach = on_attach,
