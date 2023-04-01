@@ -68,6 +68,9 @@ require('packer').startup(function(use)
     use 'norcalli/nvim-colorizer.lua'
     -- 移動系プラグイン
     use 'unblevable/quick-scope'
+
+    -- タグ自動挿入
+    use 'windwp/nvim-ts-autotag'
 end)
 
 -- vimtex設定
@@ -219,7 +222,9 @@ require('nvim-treesitter.configs').setup {
     highlight = {
         enable = true,
     },
-    ensure_installed = 'all' -- 全言語のパーサーを自動でインストール
+    autotag = {
+        enable = true,
+    },
 }
 
 -- telescope設定
