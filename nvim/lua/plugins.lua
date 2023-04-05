@@ -69,8 +69,9 @@ require('packer').startup(function(use)
     -- 移動系プラグイン
     use 'unblevable/quick-scope'
 
-    -- タグ自動挿入
-    use 'windwp/nvim-ts-autotag'
+    -- 括弧
+    use 'windwp/nvim-autopairs'                -- 括弧を自動で閉じてくれる
+    use 'windwp/nvim-ts-autotag'        -- htmlのタグを自動で閉じてくれる
 end)
 
 -- vimtex設定
