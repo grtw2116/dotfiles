@@ -24,7 +24,7 @@ require('packer').startup(function(use)
     }
 
     -- Git
-    use 'tpope/vim-fugitive' -- VimからGitを操作
+    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
     -- 文章
     use 'lervag/vimtex'      -- Tex / LaTeX 向けプラグイン
@@ -237,3 +237,5 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, {})   -- <leader>fb:
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {}) -- <leader>fh:
 
 require('colorizer').setup()
+
+require('neogit').setup()
