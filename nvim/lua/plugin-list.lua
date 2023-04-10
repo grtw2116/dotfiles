@@ -154,10 +154,20 @@ require('packer').startup(function(use)
     -- コーディング関連
     -- --------------------------------------------------------------
     -- 括弧を自動で閉じる
-    use 'windwp/nvim-autopairs'
+    use {
+        'windwp/nvim-autopairs',
+        config = function ()
+            require("plugin-config/nvim-autopairs")
+        end,
+    }
 
     -- htmlのタグを自動で閉じる
-    use 'windwp/nvim-ts-autotag'
+    use {
+        'windwp/nvim-ts-autotag',
+        config = function ()
+            require("plugin-config/nvim-ts-autotag")
+        end,
+    }
 
     -- Gitクライアント
     use {
