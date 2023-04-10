@@ -104,6 +104,15 @@ require('packer').startup(function(use)
         end
     }
 
+    -- バッファライン
+    use {
+        'akinsho/nvim-bufferline.lua',
+        requires = 'kyazdani42/nvim-web-devicons',
+        config = function()
+            require("plugin-config/nvim-bufferline")
+        end
+    }
+
     -- カラーコードを色付け
     use {
         'norcalli/nvim-colorizer.lua',
