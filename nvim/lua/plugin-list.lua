@@ -97,7 +97,7 @@ require('packer').startup(function(use)
     use {
         'nvim-lualine/lualine.nvim',
         requires = {
-            'kyazdani42/nvim-web-devicons'
+            'nvim-tree/nvim-web-devicons'
         },
         config = function()
             require("plugin-config/lualine")
@@ -107,7 +107,7 @@ require('packer').startup(function(use)
     -- バッファライン
     use {
         'akinsho/nvim-bufferline.lua',
-        requires = 'kyazdani42/nvim-web-devicons',
+        requires = 'nvim-tree/nvim-web-devicons',
         config = function()
             require("plugin-config/nvim-bufferline")
         end
