@@ -46,14 +46,6 @@ require('packer').startup(function(use)
     -- NeovimのLua APIから補完をフェッチ
     use 'hrsh7th/cmp-nvim-lua'
 
-    -- Neovim公式のLSP設定
-    use {
-        'neovim/nvim-lspconfig',
-        config = function()
-            require("plugin-config/lspconfig")
-        end,
-    }
-
     -- ポータブルLSPインストーラ
     use {
         'williamboman/mason.nvim',
@@ -67,7 +59,19 @@ require('packer').startup(function(use)
         'williamboman/mason-lspconfig.nvim',
         config = function()
             require("plugin-config/mason-lspconfig")
-        end
+        end,
+    }
+
+    -- Neovim公式のLSP設定
+    use {
+        'neovim/nvim-lspconfig',
+        config = function()
+            require("plugin-config/lspconfig")
+        end,
+        requires = {
+            { "williamboman/mason.nvim" },
+            { "williamboman/mason-lspconfig.nvim" },
+        }
     }
 
     use {
@@ -123,15 +127,6 @@ require('packer').startup(function(use)
         },
         config = function()
             require("plugin-config/lualine")
-        end
-    }
-
-    -- バッファライン
-    use {
-        'akinsho/nvim-bufferline.lua',
-        requires = 'nvim-tree/nvim-web-devicons',
-        config = function()
-            require("plugin-config/nvim-bufferline")
         end
     }
 
