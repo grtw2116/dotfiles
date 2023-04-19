@@ -70,6 +70,14 @@ require('packer').startup(function(use)
         end
     }
 
+    -- 疑似LSP
+    use {
+        'jose-elias-alvarez/null-ls.nvim',
+        config = function()
+            require("plugin-config/null-ls")
+        end
+    }
+
     -- --------------------------------------------------------------
     -- ファジーファインダー
     -- --------------------------------------------------------------
