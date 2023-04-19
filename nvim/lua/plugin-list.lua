@@ -70,6 +70,20 @@ require('packer').startup(function(use)
         end
     }
 
+    use {
+        'glepnir/lspsaga.nvim',
+        opt = true, -- 遅延読み込み
+        branch = "main",
+        event = "LspAttach",
+        config = function()
+            require("plugin-config/lspsaga")
+        end,
+        requires = {
+            { "nvim-tree/nvim-web-devicons" },
+            { "nvim-treesitter/nvim-treesitter" }
+        }
+    }
+
     -- 疑似LSP
     use {
         'jose-elias-alvarez/null-ls.nvim',
@@ -164,7 +178,7 @@ require('packer').startup(function(use)
     -- 括弧を自動で閉じる
     use {
         'windwp/nvim-autopairs',
-        config = function ()
+        config = function()
             require("plugin-config/nvim-autopairs")
         end,
     }
@@ -172,7 +186,7 @@ require('packer').startup(function(use)
     -- htmlのタグを自動で閉じる
     use {
         'windwp/nvim-ts-autotag',
-        config = function ()
+        config = function()
             require("plugin-config/nvim-ts-autotag")
         end,
     }
