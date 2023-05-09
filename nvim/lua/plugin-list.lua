@@ -195,6 +195,14 @@ require('packer').startup(function(use)
         end
     }
 
+    -- Gitの差分を表示
+    use {
+        'lewis6991/gitsigns.nvim',
+        config = function()
+            require("plugin-config/gitsigns").setup()
+        end
+    }
+
     -- Copilot
     use 'github/copilot.vim'
 
