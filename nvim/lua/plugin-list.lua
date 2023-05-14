@@ -41,7 +41,7 @@ require('packer').startup(function(use)
     use 'hrsh7th/cmp-cmdline'
 
     -- スニペットから補完をフェッチ
-    use 'hrsh7th/cmp-vsnip'
+    use 'saadparwaiz1/cmp_luasnip'
 
     -- NeovimのLua APIから補完をフェッチ
     use 'hrsh7th/cmp-nvim-lua'
@@ -220,5 +220,5 @@ require('packer').startup(function(use)
     -- --------------------------------------------------------------
     -- スニペット
     -- --------------------------------------------------------------
-    use 'hrsh7th/vim-vsnip'
+    use 'L3MON4D3/LuaSnip'
 end)
