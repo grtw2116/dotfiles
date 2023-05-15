@@ -3,7 +3,7 @@ local cmp = require("cmp")
 cmp.setup({
     snippet = {
         expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
+            require("luasnip").lsp_expand(args.body)
         end,
     },
     sources = {
@@ -12,6 +12,7 @@ cmp.setup({
         { name = "buffer" },
         { name = "path" },
         { name = "nvim_lua" },
+        { name = "luasnip" },
     },
     mapping = cmp.mapping.preset.insert({
         ["<C-p>"] = cmp.mapping.select_prev_item(),
