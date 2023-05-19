@@ -49,7 +49,7 @@ require('packer').startup(function(use)
     -- ポータブルLSPインストーラ
     use {
         'williamboman/mason.nvim',
-        config = function()
+        config = function ()
             require("plugin-config/mason")
         end,
     }
@@ -57,9 +57,10 @@ require('packer').startup(function(use)
     -- Masonとlsp-configの橋渡し
     use {
         'williamboman/mason-lspconfig.nvim',
-        config = function()
+        config = function ()
             require("plugin-config/mason-lspconfig")
         end,
+        after = "mason.nvim",
     }
 
     -- Neovim公式のLSP設定
@@ -68,9 +69,9 @@ require('packer').startup(function(use)
         config = function()
             require("plugin-config/lspconfig")
         end,
-        requires = {
-            { "williamboman/mason.nvim" },
-            { "williamboman/mason-lspconfig.nvim" },
+        after = {
+            "mason.nvim",
+            "mason-lspconfig.nvim",
         }
     }
 
