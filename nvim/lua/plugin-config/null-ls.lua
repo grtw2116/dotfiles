@@ -13,7 +13,16 @@ null_ls.setup({
                 group = augroup,
                 buffer = bufnr,
                 callback = function()
-                    vim.lsp.buf.format({ bufnr = bufnr })
+                    vim.lsp.buf.format({
+                        bufnr = bufnr,
+                        filter = function(client)
+                            -- tsserverのフォーマットを無効化
+                            if client.name == "tsserver" then
+                                return false
+                            end
+                            return true
+                        end
+                    })
                 end
             })
         end
