@@ -17,8 +17,8 @@ end
 local lsp_formatting = function (bufnr)
     vim.lsp.buf.format({
         filter = function (client)
-            -- tsserverのフォーマットを無効化
-            if client.name == "tsserver" then
+            -- tsserverとjsonlsのフォーマットを無効化
+            if client.name == "tsserver" or client.name == "jsonls" then
                 return false
             end
             return true
