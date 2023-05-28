@@ -196,7 +196,10 @@ require('packer').startup(function(use)
         end
     }
 
-    -- Gitの差分を表示
+    -- Gitの差分を見やすく
+    use 'sindrets/diffview.nvim'
+
+    -- Gitの状態を見やすく
     use {
         'lewis6991/gitsigns.nvim',
         config = function()
