@@ -8,11 +8,11 @@ for i, name in ipairs(lsp_servers) do
     require("lspconfig")[name].setup { capabilities = capabilities }
 end
 
---        -- --------------------------------------------------------------
---        -- 設定の大半をlspsaga.nvimに移行
---        --
---        -- <space>f: フォーマットを実行
---        -- --------------------------------------------------------------
+-- --------------------------------------------------------------
+-- 設定の大半をlspsaga.nvimに移行
+--
+-- <space>f: フォーマットを実行
+-- --------------------------------------------------------------
 
 local lsp_formatting = function (bufnr)
     vim.lsp.buf.format({

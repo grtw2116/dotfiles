@@ -49,7 +49,7 @@ require('packer').startup(function(use)
     -- ポータブルLSPインストーラ
     use {
         'williamboman/mason.nvim',
-        config = function ()
+        config = function()
             require("plugin-config/mason")
         end,
     }
@@ -57,7 +57,7 @@ require('packer').startup(function(use)
     -- Masonとlsp-configの橋渡し
     use {
         'williamboman/mason-lspconfig.nvim',
-        config = function ()
+        config = function()
             require("plugin-config/mason-lspconfig")
         end,
         after = "mason.nvim",
@@ -205,7 +205,12 @@ require('packer').startup(function(use)
     }
 
     -- Copilot
-    use 'github/copilot.vim'
+    use {
+        'github/copilot.vim',
+        config = function()
+            require("plugin-config/copilot")
+        end
+    }
 
     -- --------------------------------------------------------------
     -- 言語固有プラグイン
