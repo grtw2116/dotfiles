@@ -243,7 +243,15 @@ require('packer').startup(function(use)
     -- スニペット
     -- --------------------------------------------------------------
     -- スニペット
-    use 'L3MON4D3/LuaSnip'
+    use {
+        'L3MON4D3/LuaSnip',
+        config = function()
+            require("plugin-config/luasnip")
+        end,
+        dependencies = {
+            "rafamadriz/friendly-snippets"
+        },
+    }
 
     -- スニペット定義
     use "rafamadriz/friendly-snippets"
