@@ -1,3 +1,4 @@
+vim.g.mapleader = " "           -- リーダをスペースに変更
 vim.g.maplocalleader = ","      -- ローカルリーダをカンマに変更
 vim.g.loaded_netrw = 1          -- netrw（Vim純正ファイラ）を無効化
 vim.g.loaded_netrwPlugin = 1    -- netrw（Vim純正ファイラ）を無効化

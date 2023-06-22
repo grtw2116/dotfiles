@@ -3,7 +3,10 @@
 -- --------------------------------------------------------------
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local lsp_servers = { "texlab", "rust_analyzer", "lua_ls", "bashls", "tsserver", "jdtls", "html", "cssls", "pylsp", "jsonls" }
+local lsp_servers = { "texlab", "rust_analyzer", "lua_ls", "bashls", "tsserver", "jdtls", "html", "cssls", "pylsp", "jsonls", "clangd" }
+
+
+
 for i, name in ipairs(lsp_servers) do
     require("lspconfig")[name].setup { capabilities = capabilities }
 end
@@ -14,9 +17,9 @@ end
 -- <space>f: フォーマットを実行
 -- --------------------------------------------------------------
 
-local lsp_formatting = function (bufnr)
+local lsp_formatting = function(bufnr)
     vim.lsp.buf.format({
-        filter = function (client)
+        filter = function(client)
             -- tsserverとjsonlsのフォーマットを無効化
             if client.name == "tsserver" or client.name == "jsonls" then
                 return false
