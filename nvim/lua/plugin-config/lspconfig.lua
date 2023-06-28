@@ -3,7 +3,7 @@
 -- --------------------------------------------------------------
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local lsp_servers = { "texlab", "rust_analyzer", "lua_ls", "bashls", "tsserver", "jdtls", "html", "cssls", "pylsp", "jsonls", "clangd" }
+local lsp_servers = require("util.lsp-servers").list
 
 
 
