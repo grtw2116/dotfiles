@@ -195,7 +195,7 @@ require('packer').startup(function(use)
 
     -- Gitクライアント
     use {
-        'TimUntersberger/neogit',
+        'NeogitOrg/neogit',
         requires = 'nvim-lua/plenary.nvim',
         config = function()
             require("plugin-config/neogit")
