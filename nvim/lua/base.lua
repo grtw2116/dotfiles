@@ -9,6 +9,6 @@ vim.o.shiftwidth = 4            -- インデントの見た目の空白数をス
 vim.o.expandtab = true          -- <Tab>を押したときにタブ文字ではなく半角スペースを挿入
 vim.o.autoindent = true         -- 改行したときにインデントを継承
 vim.o.smartindent = true        -- '{'で終わる行で改行すると勝手にインデント
-vim.o.clipboard = 'unnamed'     -- クリップボード同期
+vim.o.clipboard = 'unnamedplus'     -- クリップボード同期
 
-vim.opt.termguicolors = true    -- GUIカラーを有効化
+vim.o.termguicolors = true      -- GUIカラーを有効化
