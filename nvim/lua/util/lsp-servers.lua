@@ -1,5 +1,19 @@
 local lsp_servers = {}
 
-lsp_servers.list = { "texlab", "rust_analyzer", "lua_ls", "bashls", "tsserver", "jdtls", "html", "cssls", "pylsp", "jsonls", "dockerls", "gradle_ls" }
+lsp_servers.list = {
+    "texlab",
+    "rust_analyzer",
+    "lua_ls",
+    "bashls",
+    "tsserver",
+    "jdtls",
+    "html",
+    "cssls",
+    "pylsp",
+    "jsonls",
+    "dockerls",
+    "docker_compose_language_service",
+    "gradle_ls",
+}
 
 return lsp_servers
