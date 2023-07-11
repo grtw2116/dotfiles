@@ -209,7 +209,7 @@ require('packer').startup(function(use)
     use {
         'lewis6991/gitsigns.nvim',
         config = function()
-            require("plugin-config/gitsigns").setup()
+            require("plugin-config/gitsigns")
         end
     }
 
@@ -270,6 +270,17 @@ require('packer').startup(function(use)
         'folke/which-key.nvim',
         config = function()
             require("plugin-config/which-key")
+        end,
+    }
+
+    -- 画面スクロールを滑らかに
+    use 'yuttie/comfortable-motion.vim'
+
+    -- ssh先でのクリップボードを同期（OSC52を使用）
+    use {
+        'ojroques/nvim-osc52',
+        config = function()
+            require("plugin-config.nvim-osc52")
         end,
     }
 end)
