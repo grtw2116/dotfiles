@@ -158,7 +158,12 @@ require('packer').startup(function(use)
     use 'tpope/vim-surround'
 
     -- コメントアウト
-    use 'tpope/vim-commentary'
+    use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+}
 
     -- --------------------------------------------------------------
     -- ファイル操作系
