@@ -77,16 +77,10 @@ require('packer').startup(function(use)
 
     use {
         'glepnir/lspsaga.nvim',
-        opt = true, -- 遅延読み込み
-        branch = "main",
-        event = "LspAttach",
+        after = 'nvim-lspconfig',
         config = function()
             require("plugin-config/lspsaga")
-        end,
-        requires = {
-            { "nvim-tree/nvim-web-devicons" },
-            { "nvim-treesitter/nvim-treesitter" }
-        }
+        end
     }
 
     -- 疑似LSP
