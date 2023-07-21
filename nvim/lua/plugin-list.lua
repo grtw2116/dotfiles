@@ -166,11 +166,11 @@ require('packer').startup(function(use)
 
     -- コメントアウト
     use {
-    'numToStr/Comment.nvim',
-    config = function()
-        require('Comment').setup()
-    end
-}
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
 
     -- --------------------------------------------------------------
     -- ファイル操作系
