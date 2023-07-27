@@ -1,8 +1,16 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# ###############################################
+#
+# .bashrc
+#
+# bash を対話モードで実行した際に呼ばれる
+# つまり，スクリプト実行時などでは呼ばれない
+# .bashrc には対話モード時に特有の設定を書くべき
+# 実行モードにに依存しない設定（環境変数など）は
+# .bash_profile に書くべき
+#
+# ###############################################
 
-# If not running interactively, don't do anything
+# 対話モードではないならば何もしない
 case $- in
     *i*) ;;
       *) return;;
@@ -72,25 +80,8 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
