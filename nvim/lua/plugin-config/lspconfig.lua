@@ -5,8 +5,9 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lsp_servers = require("util.lsp-servers").list
 
+local lspconfig = require("lspconfig")
 for _, name in ipairs(lsp_servers) do
-    require("lspconfig")[name].setup { capabilities = capabilities }
+    lspconfig[name].setup { capabilities = capabilities }
 end
 
 -- --------------------------------------------------------------
@@ -27,6 +28,7 @@ local lsp_formatting = function(bufnr)
     })
 end
 
+-- LSPサーバに接続したときに<space>fでフォーマットを実行するよう設定
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
     callback = function(ev)
