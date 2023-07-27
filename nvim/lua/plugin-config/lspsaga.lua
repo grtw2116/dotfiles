@@ -1,4 +1,12 @@
-require("lspsaga").setup()
+require("lspsaga").setup({
+    lightbulb = {
+        virtual_text = false,
+    },
+    code_action = {
+        show_server_name = true,
+        extend_gitsigns = true,
+    },
+})
 
 -- -----------------------------------------------
 -- キーマップ
@@ -24,10 +32,10 @@ require("lspsaga").setup()
 -- <A-d>: ターミナルを表示する
 -- -----------------------------------------------
 
-local keymap = vim.keymap.set
 
-keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
-keymap("n", "gr", "<cmd>Lspsaga rename<CR>")
+local keymap = vim.keymap.set
+keymap("n", "gh", "<cmd>Lspsaga finder<CR>")
+keymap("n", "gr", "<cmd>Lspsaga lsp_rename ++project<CR>")
 keymap("n", "gp", "<cmd>Lspsaga peek_definition<CR>")
 keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
 keymap("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>")
@@ -47,14 +55,7 @@ keymap("n", "]E", function()
     require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
 end)
 
-
--- Hover Doc
--- If there is no hover doc,
--- there will be a notification stating that
--- there is no information available.
--- To disable it just use ":Lspsaga hover_doc ++quiet"
--- Pressing the key twice will enter the hover window
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
 keymap("n", "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
 keymap("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
-keymap({ "n", "t" }, "<A-d>", "<cmd>Lspsaga term_toggle<CR>")
+keymap({ "n", "t" }, "<Leader>d", "<cmd>Lspsaga term_toggle<CR>")
