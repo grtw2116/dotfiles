@@ -3,9 +3,13 @@ local null_ls = require("null-ls")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
     sources = {
-        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.prettier.with {
+            -- root_dirに.prettierrcがあるかどうかで有効化するか判断
+            condition = function(utils)
+                return utils.root_has_file { ".prettierrc", ".prettierrc.js" }
+            end
+        },
         null_ls.builtins.diagnostics.textlint,
-        null_ls.builtins.code_actions.gitsigns,
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
@@ -29,4 +33,3 @@ null_ls.setup({
         end
     end,
 })
-
