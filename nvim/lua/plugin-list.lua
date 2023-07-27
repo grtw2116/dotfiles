@@ -49,6 +49,7 @@ require('packer').startup(function(use)
     -- ポータブルLSPインストーラ
     use {
         'williamboman/mason.nvim',
+        run = ':MasonUpdate',
         config = function()
             require("plugin-config/mason")
         end,
