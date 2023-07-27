@@ -2,7 +2,12 @@ require('packer').startup(function(use)
     -- --------------------------------------------------------------
     -- パッケージマネージャ
     -- --------------------------------------------------------------
-    use 'wbthomason/packer.nvim'
+    use {
+        'wbthomason/packer.nvim',
+        config = function()
+            require("plugin-config/packer")
+        end,
+    }
 
     -- --------------------------------------------------------------
     -- ColorScheme
@@ -25,11 +30,20 @@ require('packer').startup(function(use)
         end,
     }
 
+    -- 補完にアイコンを表示
+    use 'onsails/lspkind-nvim'
+
     -- LSPから補完をフェッチ
     use 'hrsh7th/cmp-nvim-lsp'
 
     -- 関数入力時にその関数のシグネチャを表示
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
+
+    -- LSPからドキュメントシンボルをフェッチ
+    use 'hrsh7th/cmp-nvim-lsp-document-symbol'
+
+    -- Copilotから補完をフェッチ
+    use 'hrsh7th/cmp-copilot'
 
     -- バッファから補完をフェッチ
     use 'hrsh7th/cmp-buffer'
@@ -45,6 +59,9 @@ require('packer').startup(function(use)
 
     -- NeovimのLua APIから補完をフェッチ
     use 'hrsh7th/cmp-nvim-lua'
+
+    -- 計算から補完をフェッチ
+    use 'hrsh7th/cmp-calc'
 
     -- ポータブルLSPインストーラ
     use {
@@ -76,7 +93,7 @@ require('packer').startup(function(use)
     }
 
     use {
-        'glepnir/lspsaga.nvim',
+        'nvimdev/lspsaga.nvim',
         after = 'nvim-lspconfig',
         config = function()
             require("plugin-config/lspsaga")
@@ -285,14 +302,19 @@ require('packer').startup(function(use)
         end,
     }
 
-    -- 画面スクロールを滑らかに
-    use 'yuttie/comfortable-motion.vim'
-
     -- ssh先でのクリップボードを同期（OSC52を使用）
     use {
         'ojroques/nvim-osc52',
         config = function()
             require("plugin-config.nvim-osc52")
+        end,
+    }
+
+    -- Obsidian との連携
+    use {
+        'epwalsh/obsidian.nvim',
+        config = function()
+            require("plugin-config/obsidian-nvim")
         end,
     }
 end)
