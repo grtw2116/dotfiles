@@ -14,6 +14,7 @@ lsp_servers.list = {
     "dockerls",
     "docker_compose_language_service",
     "gradle_ls",
+    "eslint"
 }
 
 return lsp_servers
