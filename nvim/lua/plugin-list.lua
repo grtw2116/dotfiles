@@ -78,16 +78,10 @@ require('packer').startup(function(use)
 
     use {
         'glepnir/lspsaga.nvim',
-        opt = true, -- 遅延読み込み
-        branch = "main",
-        event = "LspAttach",
+        after = 'nvim-lspconfig',
         config = function()
             require("plugin-config/lspsaga")
-        end,
-        requires = {
-            { "nvim-tree/nvim-web-devicons" },
-            { "nvim-treesitter/nvim-treesitter" }
-        }
+        end
     }
 
     -- 疑似LSP
@@ -96,6 +90,16 @@ require('packer').startup(function(use)
         config = function()
             require("plugin-config/null-ls")
         end
+    }
+
+    -- LSPの起動状況を表示
+    -- 現在開発者によってリライトされているため，破壊的変更を防ぐためにlegacyタグを指定
+    use {
+        'j-hui/fidget.nvim',
+        tag = 'legacy',
+        config = function()
+            require("fidget").setup()
+        end,
     }
 
     -- --------------------------------------------------------------
@@ -118,6 +122,9 @@ require('packer').startup(function(use)
         run = function()
             local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
             ts_update()
+        end,
+        config = function()
+            require("plugin-config/nvim-treesitter")
         end,
     }
 
@@ -160,11 +167,11 @@ require('packer').startup(function(use)
 
     -- コメントアウト
     use {
-    'numToStr/Comment.nvim',
-    config = function()
-        require('Comment').setup()
-    end
-}
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
 
     -- --------------------------------------------------------------
     -- ファイル操作系

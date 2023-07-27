@@ -5,9 +5,7 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lsp_servers = require("util.lsp-servers").list
 
-
-
-for i, name in ipairs(lsp_servers) do
+for _, name in ipairs(lsp_servers) do
     require("lspconfig")[name].setup { capabilities = capabilities }
 end
 
