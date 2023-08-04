@@ -93,14 +93,6 @@ require('packer').startup(function(use)
         }
     }
 
-    use {
-        'nvimdev/lspsaga.nvim',
-        after = 'nvim-lspconfig',
-        config = function()
-            require("plugin-config/lspsaga")
-        end
-    }
-
     -- 疑似LSP
     use {
         'jose-elias-alvarez/null-ls.nvim',
