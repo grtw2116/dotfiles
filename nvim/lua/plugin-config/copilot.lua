@@ -1,3 +1,5 @@
--- vim.g.copilot_filetypes = {
---     latex = false,
--- }
+vim.cmd([[
+let g:copilot_filetypes = {
+    \ 'tex': v:false,
+    \ }
+]])
