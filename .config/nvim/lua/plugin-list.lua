@@ -12,12 +12,20 @@ require('packer').startup(function(use)
     -- --------------------------------------------------------------
     -- ColorScheme
     -- --------------------------------------------------------------
-    use {
-        'EdenEast/nightfox.nvim',
+    -- use {
+    --     'EdenEast/nightfox.nvim',
+    --     config = function()
+    --         require("plugin-config/nightfox")
+    --     end,
+    -- }
+
+    use({
+        "neanias/everforest-nvim",
         config = function()
-            require("plugin-config/nightfox")
+            require("everforest").setup()
+            vim.cmd("colorscheme everforest")
         end,
-    }
+    })
 
     -- --------------------------------------------------------------
     -- LSP
@@ -151,6 +159,25 @@ require('packer').startup(function(use)
         end
     }
 
+    -- バッファライン
+    use {
+        'akinsho/bufferline.nvim',
+        requires = {
+            'nvim-tree/nvim-web-devicons'
+        },
+        config = function()
+            require("bufferline").setup()
+        end
+    }
+
+    -- winbar
+    use {
+        'fgheng/winbar.nvim',
+    }
+
+    -- ハイライト
+    use 'RRethy/vim-illuminate'
+
     -- カラーコードを色付け
     use {
         'norcalli/nvim-colorizer.lua',
@@ -159,12 +186,26 @@ require('packer').startup(function(use)
         end,
     }
 
+    -- スクロールバー
+    use {
+        "petertriho/nvim-scrollbar",
+        config = function()
+            require("scrollbar").setup()
+        end,
+    }
+
     -- --------------------------------------------------------------
     -- 移動系
     -- --------------------------------------------------------------
-    -- 今いる行の f で一発で飛べる単語をハイライト
-    use 'unblevable/quick-scope'
-
+    -- 高速移動
+    use {
+        'phaazon/hop.nvim',
+        branch = 'v2', -- optional but strongly recommended
+        config = function()
+            -- you can configure Hop the way you like here; see :h hop-config
+            require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+        end
+    }
     -- 移動支援
     use 'folke/flash.nvim'
 

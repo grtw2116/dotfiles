@@ -12,3 +12,4 @@ vim.o.smartindent = true        -- '{'で終わる行で改行すると勝手に
 vim.o.clipboard = 'unnamedplus'     -- クリップボード同期
 
 vim.o.termguicolors = true      -- GUIカラーを有効化
+vim.o.background = 'dark'      -- 背景を明るく
