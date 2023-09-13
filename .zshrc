@@ -1,49 +1,84 @@
-# Powerlevel10k インスタントプロンプトを有効化。
-# ~/.zshrc のトップに近い位置に置く必要があります。
-# パスワード入力や [y/n]確認など、コンソール入力を必要とする初期化コードは、
-# このブロックの上に置く必要があります。そのほかのコードは、このブロックの下に置いてください。
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# 補完設定を有効化
-autoload -Uz compinit
-compinit
 
-# 重複した履歴を無視する
-setopt histignorealldups 
 
-# 履歴を複数のシェル間で共有する
-setopt sharehistory
+##### history #####
+HISTFILE=~/.zsh_history         # historyの保存先
+HISTSIZE=10000                  # メモリ上に保存するhistoryの数
+SAVEHIST=10000                  # HISTFILEに保存するhistoryの数
 
-# EDITORがviでもemacsキーバインドを使う
-bindkey -e
+setopt histignorealldups        # 重複した履歴を無視する
+setopt sharehistory             # 履歴を複数のシェル間で共有する
 
-# 1000行の履歴を保存し~/.zsh_historyに保存する
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE=~/.zsh_history
 
-# iterm2_shell_integration設定
+
+##### alias #####
+alias g='git'
+alias gb='git branch'
+alias gs='git switch'
+alias gd='git diff'
+alias gc='git commit'
+alias gp='git pull'
+alias gP='git push'
+alias gl='git log'
+alias ga='git add'
+alias gm='git merge'
+alias gr='git rebase'
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+
+
+##### completion #####
+autoload -Uz compinit && compinit     # 補完を有効にする
+
+
+
+##### iterm2_shell_integration #####
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# zsh-completions設定
-if type brew &>/dev/null; then
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
-    autoload -Uz compinit
-    compinit
+
+##### Added by Zinit's installer #####
+# zinit がインストールされていなければインストールする
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
 fi
 
-# zsh-autocompletions設定
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-# zsh-syntax-highligihting設定
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+
+
+##### zinitプラグイン #####
+zinit ice depth=1; zinit light romkatv/powerlevel10k        # プロンプト
+zinit light zdharma/fast-syntax-highlighting                # シンタックスハイライト
+zinit light zsh-users/zsh-autosuggestions                   # 入力補完
+zinit light paulirish/git-open                              # `git open`でリポジトリを開く
+
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# プロンプトをカスタマイズするには，`p10k configure`を実行するか，~/.p10k.zshを編集します。
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
