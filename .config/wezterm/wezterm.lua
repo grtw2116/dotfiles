@@ -23,7 +23,7 @@ config.window_padding = {
     bottom = 0,
 }
 
--- config.font_size = 12.0
+config.font_size = 15.0
 
 ---------------------
 -- 設定記述終了
