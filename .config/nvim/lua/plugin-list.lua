@@ -210,6 +210,9 @@ require("lazy").setup({
     -- ファイラー
     {
         'stevearc/oil.nvim',
+        config = function()
+            require("plugin-config/oil")
+        end,
         opts = {},
         -- Optional dependencies
         dependencies = { "nvim-tree/nvim-web-devicons" },
