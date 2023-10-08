@@ -2,6 +2,11 @@
 
 Linux / Mac の設定ファイル群
 
+## 想定環境
+
+- macOS 13.x ventura
+- wezterm
+
 ## Neovim
 
 `<leader>`: `<Space>`
