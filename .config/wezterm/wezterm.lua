@@ -24,6 +24,7 @@ config.window_padding = {
 }
 
 config.font_size = 15.0
+config.color_scheme = "Gruvbox Dark (Gogh)"
 
 ---------------------
 -- 設定記述終了
