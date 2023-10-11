@@ -75,7 +75,6 @@ require("lazy").setup({
         config = function()
             require("plugin-config/mason-lspconfig")
         end,
-        after = "mason.nvim",
     },
 
     -- Neovim公式のLSP設定
@@ -84,19 +83,16 @@ require("lazy").setup({
         config = function()
             require("plugin-config/lspconfig")
         end,
-        after = {
-            "mason.nvim",
-            "mason-lspconfig.nvim",
-        },
     },
 
     -- 疑似LSP
-    {
-        'jose-elias-alvarez/null-ls.nvim',
-        config = function()
-            require("plugin-config/null-ls")
-        end
-    },
+    -- deprecatedとなったため削除
+    -- {
+    --     'jose-elias-alvarez/null-ls.nvim',
+    --     config = function()
+    --         require("plugin-config/null-ls")
+    --     end
+    -- },
 
     -- LSPの起動状況を表示
     -- 現在開発者によってリライトされているため，破壊的変更を防ぐためにlegacyタグを指定
@@ -105,6 +101,25 @@ require("lazy").setup({
         tag = 'legacy',
         config = function()
             require("fidget").setup()
+        end,
+    },
+
+    -- LSPのUIを提供
+    {
+        'folke/trouble.nvim',
+        dependencies = 'nvim-tree/nvim-web-devicons',
+        config = function()
+            require("plugin-config/trouble")
+        end,
+    },
+
+    -- --------------------------------------------------------------
+    -- フォーマッタ
+    -- --------------------------------------------------------------
+    {
+        'mhartington/formatter.nvim',
+        config = function()
+            require("plugin-config/formatter")
         end,
     },
 
@@ -209,13 +224,16 @@ require("lazy").setup({
     -- --------------------------------------------------------------
     -- ファイラー
     {
-        'stevearc/oil.nvim',
+        'nvim-neo-tree/neo-tree.nvim',
+        branch = 'v3.x',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'nvim-tree/nvim-web-devicons',
+            'MunifTanjim/nui.nvim',
+        },
         config = function()
-            require("plugin-config/oil")
+            require("plugin-config/neo-tree")
         end,
-        opts = {},
-        -- Optional dependencies
-        dependencies = { "nvim-tree/nvim-web-devicons" },
     },
 
     -- --------------------------------------------------------------
@@ -240,7 +258,12 @@ require("lazy").setup({
     -- Gitクライアント
     {
         'NeogitOrg/neogit',
-        requires = 'nvim-lua/plenary.nvim',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope.nvim',
+            'sindrets/diffview.nvim',
+            'ibhagwan/fzf-lua',
+        },
         config = function()
             require("plugin-config/neogit")
         end
@@ -291,9 +314,23 @@ require("lazy").setup({
         end,
     },
 
+    -- TypeScript / JavaScript
+    {
+        "pmizio/typescript-tools.nvim",
+        dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+        opts = {},
+    },
+
     -- --------------------------------------------------------------
     -- スニペット
     -- --------------------------------------------------------------
+    {
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!).
+        build = "make install_jsregexp"
+    },
 
     -- --------------------------------------------------------------
     -- その他
@@ -321,4 +358,27 @@ require("lazy").setup({
             require("plugin-config/obsidian-nvim")
         end,
     },
+
+    -- ChatGPT
+    {
+        "jackMort/ChatGPT.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("chatgpt").setup()
+        end,
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim"
+        }
+    },
+
+    -- DevContainer
+    {
+        'https://codeberg.org/esensar/nvim-dev-container',
+        dependencies = 'nvim-treesitter/nvim-treesitter',
+        config = function ()
+            require("devcontainer").setup({})
+        end
+    }
 })

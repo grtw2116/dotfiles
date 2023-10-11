@@ -11,25 +11,38 @@ for _, name in ipairs(lsp_servers) do
 end
 
 -- --------------------------------------------------------------
--- 設定の大半をlspsaga.nvimに移行
+-- グローバルなキーマップ
 --
--- <space>f: フォーマットを実行
+-- <leader>e: エラー表示
+-- [d: 前のエラーに移動
+-- ]d: 次のエラーに移動
+-- <leader>q: qucikfixリストを開く
 -- --------------------------------------------------------------
-
--- Global mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
--- Use LspAttach autocommand to only map the following keys
--- after the language server attaches to the current buffer
+-- --------------------------------------------------------------
+-- バッファローカルなキーマップ
+--
+-- gD: 定義に移動
+-- gd: 定義に移動
+-- K: ホバー
+-- gi: 実装に移動
+-- <C-k>: シグネチャヘルプ
+-- <leader>wa: ワークスペースフォルダを追加
+-- <leader>wr: ワークスペースフォルダを削除
+-- <leader>wl: ワークスペースフォルダをリスト
+-- <leader>D: 型定義に移動
+-- <leader>rn: 名前変更
+-- <leader>ca: コードアクション
+-- gr: 参照
+-- <leader>f: フォーマット
+-- --------------------------------------------------------------
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
-    -- Buffer local mappings.
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
     local opts = { buffer = ev.buf }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -50,15 +63,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, opts)
   end,
 })
-
-local lsp_formatting = function(bufnr)
-    vim.lsp.buf.format({
-        filter = function(client)
-            -- tsserverとjsonlsのフォーマットを無効化
-            if client.name == "tsserver" or client.name == "jsonls" then
-                return false
-            end
-            return true
-        end
-    })
-end

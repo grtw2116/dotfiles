@@ -5,7 +5,6 @@ lsp_servers.list = {
     "rust_analyzer",
     "lua_ls",
     "bashls",
-    "tsserver",
     "jdtls",
     "html",
     "cssls",
@@ -14,7 +13,7 @@ lsp_servers.list = {
     "dockerls",
     "docker_compose_language_service",
     "gradle_ls",
-    "eslint"
+    "efm",
 }
 
 return lsp_servers
