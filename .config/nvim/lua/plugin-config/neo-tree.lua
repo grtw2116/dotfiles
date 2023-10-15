@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<C-n>", ":Neotree<CR>", {})
+vim.keymap.set("n", "<C-n>", ":Neotree toggle<CR>", {})
 require("neo-tree").setup({
     filesystem = {
         filtered_items = {
