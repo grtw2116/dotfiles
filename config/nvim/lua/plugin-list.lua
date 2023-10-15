@@ -63,7 +63,6 @@ require("lazy").setup({
     -- ポータブルLSPインストーラ
     {
         'williamboman/mason.nvim',
-        run = ':MasonUpdate',
         config = function()
             require("plugin-config/mason")
         end,

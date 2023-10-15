@@ -5,6 +5,12 @@ brew "tldr"         # コマンドの使い方を手短に解説
 brew "tig"          # Gitクライアント
 brew "tree"         # ディレクトリ構造を木形式で出力
 brew "mas"          # Mac App Storeからインストールしたアプリを管理
+brew "ghq"          # gitレポジトリ管理
+brew "peco"         # フィルタツール (ghq連携のために導入)
+brew "coreutils"    # GNU系基本コマンド
+brew "findutils"    # GNU系ファイル検索コマンド
+brew "gnu-sed"      # GNU系sedコマンド
+brew "grep"         # GNU系grepコマンド
 
 cask "raycast"                      # ランチャーアプリ
 cask "google-chrome"                # ブラウザ

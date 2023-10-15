@@ -2,6 +2,12 @@
 
 Linux / Mac の設定ファイル群
 
+## How to Setup
+
+```bash
+./install.sh
+```
+
 ## 想定環境
 
 - macOS 13.x ventura

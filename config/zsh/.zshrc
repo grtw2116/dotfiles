@@ -6,10 +6,23 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 
+##### ghqとpecoの連携 #####
+# <C-g>でghq listをpecoで絞り込み、選択したディレクトリに移動する
+# ref. https://zenn.dev/obregonia1/articles/e82868e8f66793
+function ghqcd() {
+    local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N ghqcd
+bindkey '^g' ghqcd
 
-##### envrionemnt variables #####
+
+##### Open AI API key #####
 source ~/.openai_key            # OpenAI APIのキー (GitHubへのpush禁止!!!!)
-
 
 
 ##### history #####
@@ -19,7 +32,6 @@ SAVEHIST=10000                  # HISTFILEに保存するhistoryの数
 
 setopt histignorealldups        # 重複した履歴を無視する
 setopt sharehistory             # 履歴を複数のシェル間で共有する
-
 
 
 ##### alias #####
@@ -40,17 +52,14 @@ alias la='ls -A'
 alias l='ls -CF'
 
 
-
 ##### completion #####
 autoload -Uz compinit && compinit     # 補完を有効にする
-
 
 
 ##### iterm2_shell_integration #####
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 
 
 ##### Added by Zinit's installer #####
@@ -76,13 +85,11 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 
-
 ##### zinitプラグイン #####
 zinit ice depth=1; zinit light romkatv/powerlevel10k        # プロンプト
 zinit light zdharma/fast-syntax-highlighting                # シンタックスハイライト
 zinit light zsh-users/zsh-autosuggestions                   # 入力補完
 zinit light paulirish/git-open                              # `git open`でリポジトリを開く
-
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

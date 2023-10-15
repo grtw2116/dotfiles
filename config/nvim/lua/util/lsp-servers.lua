@@ -13,7 +13,6 @@ lsp_servers.list = {
     "dockerls",
     "docker_compose_language_service",
     "gradle_ls",
-    "efm",
 }
 
 return lsp_servers
