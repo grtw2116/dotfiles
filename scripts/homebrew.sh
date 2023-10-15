@@ -15,4 +15,4 @@ brew update
 
 # Homebrewのパッケージをインストール
 echo "Homebrewのパッケージをインストールします．"
-brew bundle install --file "${DOT_DIR}/config/homebrew/Brewfile"
+brew bundle install --file "$REPO_DIR/config/homebrew/Brewfile"

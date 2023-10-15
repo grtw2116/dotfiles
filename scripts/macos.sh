@@ -2,4 +2,4 @@
 source "$(dirname "$0")/common-var.sh"
 
 # Homebrewのインストール
-$DOTFILES_DIR/scripts/homebrew.sh
+$REPO_DIR/scripts/homebrew.sh
