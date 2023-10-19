@@ -47,6 +47,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias bat='batcat'
 
 ##### completion #####
 autoload -Uz compinit && compinit     # 補完を有効にする
