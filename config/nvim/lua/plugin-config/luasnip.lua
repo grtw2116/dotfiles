@@ -1,1 +1,1 @@
-require("luasnip.loaders.from_vscode").lazy_load({ paths = { "../../snippets/*.json" }})
+require("luasnip.loaders.from_vscode").lazy_load({ paths = { "snippets/python.json" }})

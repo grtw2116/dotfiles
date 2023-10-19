@@ -328,7 +328,10 @@ require("lazy").setup({
         -- follow latest release.
         version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
         -- install jsregexp (optional!).
-        build = "make install_jsregexp"
+        build = "make install_jsregexp",
+        config = function()
+            require("plugin-config/luasnip")
+        end,
     },
 
     -- --------------------------------------------------------------
