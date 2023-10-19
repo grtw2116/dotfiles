@@ -6,5 +6,10 @@ mkdir -p "$XDG_CONFIG_HOME"
 # 環境変数設定のため.zshenvはホームディレクトリにも配置
 ln -sfv "$REPO_DIR/config/zsh/.zshenv" "$HOME/.zshenv"
 
+# bashを使用する場合に備え.zshenvを.bashrcにリンク
+ln -sfv "$REPO_DIR/config/zsh/.zshenv" "$HOME/.bashrc"
+
 # $REPO_DIR/config/内のファイルを全てリンク
-ls $REPO_DIR/config | xargs -I{} ln -sfv $REPO_DIR/config/{} $XDG_CONFIG_HOME/{}
+for p in $REPO_DIR/config/*; do
+    ln -sfv "$p" "$XDG_CONFIG_HOME"
+done
