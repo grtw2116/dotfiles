@@ -26,6 +26,8 @@ config.window_padding = {
 config.font_size = 15.0
 config.color_scheme = "Gruvbox Dark (Gogh)"
 
+config.default_domain = "WSL:Ubuntu"
+
 ---------------------
 -- 設定記述終了
 ---------------------
