@@ -21,10 +21,6 @@ zle -N ghqcd
 bindkey '^g' ghqcd
 
 
-##### Open AI API key #####
-source ~/.openai_key            # OpenAI APIのキー (GitHubへのpush禁止!!!!)
-
-
 ##### history #####
 HISTFILE=~/.zsh_history         # historyの保存先
 HISTSIZE=10000                  # メモリ上に保存するhistoryの数
