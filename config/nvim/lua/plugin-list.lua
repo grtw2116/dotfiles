@@ -326,6 +326,15 @@ require("lazy").setup({
         opts = {},
     },
 
+    -- Java
+    {
+        "mfussenegger/nvim-jdtls",
+        ft = "java",
+        config = function()
+            require("plugin-config/nvim-jdtls")
+        end,
+    },
+
     -- --------------------------------------------------------------
     -- スニペット
     -- --------------------------------------------------------------
