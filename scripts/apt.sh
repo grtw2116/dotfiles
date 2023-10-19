@@ -1,6 +1,7 @@
-apt update
-apt upgrade -y
-apt install -y \
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y \
     bat \
     build-essential \
     zsh \
+
