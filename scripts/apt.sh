@@ -1,12 +1,12 @@
-sudo apt update
-sudo apt upgrade -y
-sudo apt install -y \
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get install -y \
     bat \
     build-essential \
     software-properties-common \
     zsh
 
 # Neovimのインストール
-sudo add-apt-repository ppa:neovim-ppa/unstable
-sudo apt update
-sudo apt install -y neovim
+sudo add-apt-repository ppa:neovim-ppa/unstable -y
+sudo apt-get update
+sudo apt-get install -y neovim
