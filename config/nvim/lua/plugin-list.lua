@@ -113,6 +113,13 @@ require("lazy").setup({
     },
 
     -- --------------------------------------------------------------
+    -- デバッガ
+    -- --------------------------------------------------------------
+    {
+        "mfussenegger/nvim-dap",
+    },
+
+    -- --------------------------------------------------------------
     -- フォーマッタ
     -- --------------------------------------------------------------
     {
@@ -169,7 +176,7 @@ require("lazy").setup({
     -- winbar
     {
         'utilyre/barbecue.nvim',
-        name="barbecue",
+        name = "barbecue",
         version = "*",
         dependencies = {
             "SmiteshP/nvim-navic",
@@ -394,8 +401,18 @@ require("lazy").setup({
     {
         'https://codeberg.org/esensar/nvim-dev-container',
         dependencies = 'nvim-treesitter/nvim-treesitter',
-        config = function ()
+        config = function()
             require("devcontainer").setup({})
         end
+    },
+
+    -- ブラウザのテキストボックスをneovim化
+    {
+        'glacambre/firenvim',
+        lazy = not vim.g.started_by_firenvim,
+        build = function()
+            vim.fn["firenvim#install"](0)
+        end
     }
+
 })
