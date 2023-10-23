@@ -4,6 +4,7 @@ sudo apt-get install -y \
     bat \
     build-essential \
     software-properties-common \
+    ripgrep \
     zsh
 
 # Neovimのインストール
