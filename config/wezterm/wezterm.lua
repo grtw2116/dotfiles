@@ -31,10 +31,10 @@ config.leader = { key = "s", mods = "CTRL", timeout_milliseconds = 2000 }
 
 local act = wezterm.action
 config.keys = {
-    { key = "h", mods = "LEADER", action = act.ActivePaneDirection 'Left' },
-    { key = "j", mods = "LEADER", action = act.ActivePaneDirection 'Down' },
-    { key = "k", mods = "LEADER", action = act.ActivePaneDirection 'Up' },
-    { key = "l", mods = "LEADER", action = act.ActivePaneDirection 'Right' },
+    { key = "h", mods = "LEADER", action = act.ActivatePaneDirection 'Left' },
+    { key = "j", mods = "LEADER", action = act.ActivatePaneDirection 'Down' },
+    { key = "k", mods = "LEADER", action = act.ActivatePaneDirection 'Up' },
+    { key = "l", mods = "LEADER", action = act.ActivatePaneDirection 'Right' },
     { key = "-", mods = "LEADER", action = act.SplitVertical { domain = "CurrentPaneDomain" } },
     { key = "|", mods = "LEADER", action = act.SplitHorizontal { domain = "CurrentPaneDomain" } }
 }
