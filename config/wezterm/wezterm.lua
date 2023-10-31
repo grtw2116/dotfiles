@@ -26,7 +26,18 @@ config.window_padding = {
 config.font_size = 15.0
 config.color_scheme = "Gruvbox Dark (Gogh)"
 
-config.default_domain = "WSL:Ubuntu"
+-- <C-q>: Leaderキー
+config.leader = { key = "s", mods = "CTRL", timeout_milliseconds = 2000 }
+
+local act = wezterm.action
+config.keys = {
+    { key = "h", mods = "LEADER", action = act.ActivePaneDirection 'Left' },
+    { key = "j", mods = "LEADER", action = act.ActivePaneDirection 'Down' },
+    { key = "k", mods = "LEADER", action = act.ActivePaneDirection 'Up' },
+    { key = "l", mods = "LEADER", action = act.ActivePaneDirection 'Right' },
+    { key = "-", mods = "LEADER", action = act.SplitVertical { domain = "CurrentPaneDomain" } },
+    { key = "|", mods = "LEADER", action = act.SplitHorizontal { domain = "CurrentPaneDomain" } }
+}
 
 ---------------------
 -- 設定記述終了
