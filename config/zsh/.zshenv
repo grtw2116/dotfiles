@@ -14,5 +14,10 @@ export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export GOPATH=${XDG_DATA_HOME}/go                # Go製パッケージのインストール先
 export PATH=$PATH:$GOPATH/bin                    # Go製パッケージの実行ファイルのパス
 
+### Homebrew ###
+if [ -d "/opt/homebrew/bin" ]; then
+  export PATH="/opt/homebrew/bin:$PATH"
+fi
+
 ### OpenAI API key ###
 export OPENAI_API_KEY="$(cat $HOME/.openai_key)"
