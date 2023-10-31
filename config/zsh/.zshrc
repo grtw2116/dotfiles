@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 
-##### ghqとpecoの連携 #####
+### ghqとpecoの連携 ###
 # <C-g>でghq listをpecoで絞り込み、選択したディレクトリに移動する
 # ref. https://zenn.dev/obregonia1/articles/e82868e8f66793
 function ghqcd() {
@@ -21,7 +21,7 @@ zle -N ghqcd
 bindkey '^g' ghqcd
 
 
-##### history #####
+### history ###
 HISTFILE=~/.zsh_history         # historyの保存先
 HISTSIZE=10000                  # メモリ上に保存するhistoryの数
 SAVEHIST=10000                  # HISTFILEに保存するhistoryの数
@@ -30,7 +30,7 @@ setopt histignorealldups        # 重複した履歴を無視する
 setopt sharehistory             # 履歴を複数のシェル間で共有する
 
 
-##### alias #####
+### alias ###
 alias g='git'
 alias gb='git branch'
 alias gs='git switch'
@@ -47,19 +47,15 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias bat='batcat'
+# batcatがインストールされていればcatをbatcatに置き換える
+if type batcat > /dev/null 2>&1; then
+    alias cat='batcat'
+fi
 
-##### completion #####
+### completion ###
 autoload -Uz compinit && compinit     # 補完を有効にする
 
 
-##### iterm2_shell_integration #####
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-
-##### Added by Zinit's installer #####
 # zinit がインストールされていなければインストールする
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -82,7 +78,7 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 
-##### zinitプラグイン #####
+### zinitプラグイン ###
 zinit ice depth=1; zinit light romkatv/powerlevel10k        # プロンプト
 zinit light zdharma/fast-syntax-highlighting                # シンタックスハイライト
 zinit light zsh-users/zsh-autosuggestions                   # 入力補完
