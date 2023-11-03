@@ -38,7 +38,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 -- <leader>rn: 名前変更
 -- <leader>ca: コードアクション
 -- gr: 参照
--- <leader>f: フォーマット
+-- <leader>f: フォーマット（formatter.nvimに移行）
 -- --------------------------------------------------------------
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -58,8 +58,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
     vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', '<leader>f', function()
-      vim.lsp.buf.format { async = true }
-    end, opts)
+    -- vim.keymap.set('n', '<leader>f', function()
+    --   vim.lsp.buf.format { async = true }
+    -- end, opts)
   end,
 })
