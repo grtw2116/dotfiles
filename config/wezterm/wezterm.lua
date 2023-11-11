@@ -39,6 +39,13 @@ config.keys = {
     { key = "|", mods = "LEADER", action = act.SplitHorizontal { domain = "CurrentPaneDomain" } }
 }
 
+
+-- ssh設定
+-- .ssh/configに設定したホスト名を指定する
+-- `wezterm connect SSH:ホスト名` で接続
+-- `wezterm connect SSHMUX:ホスト名` で多重化対応接続
+config.ssh_domains = wezterm.default_ssh_domains()
+
 ---------------------
 -- 設定記述終了
 ---------------------
