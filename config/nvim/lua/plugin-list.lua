@@ -8,12 +8,15 @@ require("lazy").setup({
 	--         require("plugin-config/nightfox")
 	--     end,
 	-- },
+	-- {
+	-- 	"neanias/everforest-nvim",
+	-- 	config = function()
+	-- 		require("everforest").setup()
+	-- 		vim.cmd("colorscheme everforest")
+	-- 	end,
+	-- },
 	{
-		"neanias/everforest-nvim",
-		config = function()
-			require("everforest").setup()
-			vim.cmd("colorscheme everforest")
-		end,
+		"folke/tokyonight.nvim",
 	},
 
 	-- --------------------------------------------------------------

@@ -24,7 +24,7 @@ config.window_padding = {
 }
 
 config.font_size = 15.0
-config.color_scheme = "Gruvbox Dark (Gogh)"
+config.color_scheme = "tokyonight"
 
 -- <C-q>: Leaderキー
 config.leader = { key = "s", mods = "CTRL", timeout_milliseconds = 2000 }
