@@ -30,6 +30,10 @@ setopt histignorealldups        # 重複した履歴を無視する
 setopt sharehistory             # 履歴を複数のシェル間で共有する
 
 
+### emacs風キーバインド ###
+bindkey -e                       # emacs風キーバインドを有効にする
+
+
 ### alias ###
 alias g='git'
 alias gb='git branch'
@@ -49,7 +53,7 @@ alias l='ls -CF'
 
 # batcatがインストールされていればcatをbatcatに置き換える
 if type batcat > /dev/null 2>&1; then
-    alias cat='batcat'
+    alias bat='batcat'
 fi
 
 ### completion ###
