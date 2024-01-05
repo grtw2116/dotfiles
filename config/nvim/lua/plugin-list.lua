@@ -214,6 +214,19 @@ require("lazy").setup({
 		end,
 	},
 
+	-- ファンシーなUI
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("plugin-config/noice")
+		end,
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
+	},
+
 	-- --------------------------------------------------------------
 	-- 移動系
 	-- --------------------------------------------------------------
@@ -405,8 +418,8 @@ require("lazy").setup({
 
 	{
 		"f-person/auto-dark-mode.nvim",
-        config = function()
-            require("plugin-config/auto-dark-mode")
-        end,
+		config = function()
+			require("plugin-config/auto-dark-mode")
+		end,
 	},
 })
