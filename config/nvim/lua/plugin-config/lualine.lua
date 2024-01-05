@@ -1,5 +1,10 @@
-require('lualine').setup({
-    options = {
-        theme = 'auto',
-    }
+local CodeGPTModule = require("codegpt")
+
+require("lualine").setup({
+	sections = {
+		lualine_x = { CodeGPTModule.get_status, "encoding", "fileformat" },
+	},
+	options = {
+		theme = "auto",
+	},
 })
