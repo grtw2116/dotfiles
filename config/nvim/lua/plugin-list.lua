@@ -125,10 +125,16 @@ require("lazy").setup({
 	-- --------------------------------------------------------------
 	-- フォーマッタ
 	-- --------------------------------------------------------------
+	-- {
+	-- 	"mhartington/formatter.nvim",
+	-- 	config = function()
+	-- 		require("plugin-config/formatter")
+	-- 	end,
+	-- },
 	{
-		"mhartington/formatter.nvim",
+		"stevearc/conform.nvim",
 		config = function()
-			require("plugin-config/formatter")
+			require("plugin-config/conform")
 		end,
 	},
 
