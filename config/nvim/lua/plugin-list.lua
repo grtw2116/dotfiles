@@ -63,6 +63,9 @@ require("lazy").setup({
 	-- 計算から補完をフェッチ
 	"hrsh7th/cmp-calc",
 
+	-- luaのneovim APIを補完
+	"folke/neodev.nvim",
+
 	-- ポータブルLSPインストーラ
 	{
 		"williamboman/mason.nvim",
@@ -82,6 +85,7 @@ require("lazy").setup({
 	-- Neovim公式のLSP設定
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = { "folke/neodev.nvim" },
 		config = function()
 			require("plugin-config/lspconfig")
 		end,
@@ -397,14 +401,6 @@ require("lazy").setup({
 		"ojroques/nvim-osc52",
 		config = function()
 			require("plugin-config.nvim-osc52")
-		end,
-	},
-
-	-- Obsidian との連携
-	{
-		"epwalsh/obsidian.nvim",
-		config = function()
-			require("plugin-config/obsidian-nvim")
 		end,
 	},
 

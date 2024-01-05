@@ -1,4 +1,3 @@
-
 -- --------------------------------------------------------------
 -- アイコン設定
 -- --------------------------------------------------------------
@@ -22,7 +21,21 @@ local lsp_servers = require("util.lsp-servers").list
 
 local lspconfig = require("lspconfig")
 for _, name in ipairs(lsp_servers) do
-	lspconfig[name].setup({ capabilities = capabilities })
+	if name == "lua_ls" then
+		require("neodev").setup()
+		lspconfig["lua_ls"].setup({
+			capabilities = capabilities,
+			settings = {
+				Lua = {
+					completion = {
+						callSnippet = "Replace",
+					},
+				},
+			},
+		})
+	else
+		lspconfig[name].setup({ capabilities = capabilities })
+	end
 end
 
 -- --------------------------------------------------------------

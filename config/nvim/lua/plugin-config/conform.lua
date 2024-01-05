@@ -4,13 +4,13 @@ require("conform").setup({
 		-- Conform will run multiple formatters sequentially
 		python = { "autopep8" },
 		-- Use a sub-list to run only the first available formatter
-		javascript = { { "prettierd", "prettier" } },
-		javascriptreact = { { "prettierd", "prettier" } },
-		typescript = { { "prettierd", "prettier" } },
-		typescriptreact = { { "prettierd", "prettier" } },
+		javascript = { "rustywind", { "prettierd", "prettier" } },
+		javascriptreact = { "rustywind", { "prettierd", "prettier" } },
+		typescript = { "rustywind", { "prettierd", "prettier" } },
+		typescriptreact = { "rustywind", { "prettierd", "prettier" } },
 	},
 	format_on_save = {
-		timeout_ms = 500,
+		-- timeout_ms = 500,
 		lsp_fallback = true,
-	}
+	},
 })
