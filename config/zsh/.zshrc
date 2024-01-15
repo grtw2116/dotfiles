@@ -5,6 +5,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+### emacs風キーバインド ###
+bindkey -e                       # emacs風キーバインドを有効にする
 
 ### ghqとpecoの連携 ###
 # <C-g>でghq listをpecoで絞り込み、選択したディレクトリに移動する
@@ -30,8 +32,6 @@ setopt histignorealldups        # 重複した履歴を無視する
 setopt sharehistory             # 履歴を複数のシェル間で共有する
 
 
-### emacs風キーバインド ###
-bindkey -e                       # emacs風キーバインドを有効にする
 
 
 ### alias ###
