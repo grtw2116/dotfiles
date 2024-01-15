@@ -319,10 +319,22 @@ require("lazy").setup({
 	},
 
 	-- Copilot
+	-- {
+	-- 	"github/copilot.vim",
+	-- 	config = function()
+	-- 		require("plugin-config/copilot")
+	-- 	end,
+	-- },
 	{
-		"github/copilot.vim",
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
 		config = function()
-			require("plugin-config/copilot")
+			require("copilot").setup({
+				suggestion = {
+					auto_trigger = true,
+				},
+			})
 		end,
 	},
 
