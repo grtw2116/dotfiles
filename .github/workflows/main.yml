@@ -1,0 +1,11 @@
+name: main
+
+on: [push]
+
+jobs:
+  main:
+    runs-on: ubuntu-latest # or macOS-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: install dotfiles
+        run: bash install.sh
