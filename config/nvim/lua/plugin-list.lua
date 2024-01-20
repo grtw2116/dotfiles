@@ -333,6 +333,9 @@ require("lazy").setup({
 			require("copilot").setup({
 				suggestion = {
 					auto_trigger = true,
+					keymap = {
+						accept = "<Tab>",
+					},
 				},
 			})
 		end,
@@ -405,14 +408,6 @@ require("lazy").setup({
 		"folke/which-key.nvim",
 		config = function()
 			require("plugin-config/which-key")
-		end,
-	},
-
-	-- ssh先でのクリップボードを同期（OSC52を使用）
-	{
-		"ojroques/nvim-osc52",
-		config = function()
-			require("plugin-config.nvim-osc52")
 		end,
 	},
 

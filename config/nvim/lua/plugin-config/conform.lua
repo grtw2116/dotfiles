@@ -8,6 +8,8 @@ require("conform").setup({
 		javascriptreact = { "rustywind", { "prettierd", "prettier" } },
 		typescript = { "rustywind", { "prettierd", "prettier" } },
 		typescriptreact = { "rustywind", { "prettierd", "prettier" } },
+		sh = { "shfmt" },
+		bash = { "shfmt" },
 	},
 	format_on_save = {
 		-- timeout_ms = 500,
