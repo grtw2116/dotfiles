@@ -104,7 +104,6 @@ require("lazy").setup({
 	-- 現在開発者によってリライトされているため，破壊的変更を防ぐためにlegacyタグを指定
 	{
 		"j-hui/fidget.nvim",
-		tag = "legacy",
 		config = function()
 			require("fidget").setup()
 		end,
