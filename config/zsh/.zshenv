@@ -21,3 +21,5 @@ fi
 
 ### OpenAI API key ###
 export OPENAI_API_KEY="$(cat $HOME/.openai_key)"
+
+export ANDROID_HOME="$HOME/Library/Android/sdk"
