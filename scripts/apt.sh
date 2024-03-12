@@ -1,11 +1,12 @@
 sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get install -y \
-    bat \
-    build-essential \
-    software-properties-common \
-    ripgrep \
-    zsh
+	bat \
+	build-essential \
+	language-pack-ja \
+	software-properties-common \
+	ripgrep \
+	zsh
 
 # Neovimのインストール
 sudo add-apt-repository ppa:neovim-ppa/unstable -y
