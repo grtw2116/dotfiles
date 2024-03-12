@@ -30,6 +30,7 @@ end
 config.color_scheme = scheme_for_appearance(get_appearance())
 
 config.font = wezterm.font_with_fallback({
+	"Moralerspace Argon NF",
 	"PlemolJP Console NF",
 })
 
