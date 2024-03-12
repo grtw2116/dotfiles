@@ -21,3 +21,6 @@ fi
 
 ### OpenAI API key ###
 export OPENAI_API_KEY="$(cat $HOME/.openai_key)"
+
+### Poetry ###
+export PATH="$HOME/.local/bin:$PATH"
