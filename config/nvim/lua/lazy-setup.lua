@@ -225,17 +225,17 @@ require("lazy").setup({
 	},
 
 	-- ファンシーなUI
-	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("plugin-config/noice")
-		end,
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-		},
-	},
+	-- {
+	-- 	"folke/noice.nvim",
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("plugin-config/noice")
+	-- 	end,
+	-- 	dependencies = {
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		"rcarriga/nvim-notify",
+	-- 	},
+	-- },
 
 	-- --------------------------------------------------------------
 	-- 移動系

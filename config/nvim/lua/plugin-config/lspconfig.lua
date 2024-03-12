@@ -1,16 +1,16 @@
 -- --------------------------------------------------------------
 -- アイコン設定
 -- --------------------------------------------------------------
-local signs = {
-	Error = " ",
-	Warn = " ",
-	Hint = " ",
-	Info = " ",
-}
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
+-- local signs = {
+-- 	Error = " ",
+-- 	Warn = " ",
+-- 	Hint = " ",
+-- 	Info = " ",
+-- }
+-- for type, icon in pairs(signs) do
+-- 	local hl = "DiagnosticSign" .. type
+-- 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+-- end
 
 -- --------------------------------------------------------------
 -- LSPサーバ読み込み
@@ -32,6 +32,10 @@ for _, name in ipairs(lsp_servers) do
 					},
 				},
 			},
+		})
+	elseif name == "pyright" then
+		lspconfig["pyright"].setup({
+			capabilities = capabilities,
 		})
 	else
 		lspconfig[name].setup({ capabilities = capabilities })

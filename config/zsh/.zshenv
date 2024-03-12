@@ -22,4 +22,8 @@ fi
 ### OpenAI API key ###
 export OPENAI_API_KEY="$(cat $HOME/.openai_key)"
 
+### Android SDK ###
 export ANDROID_HOME="$HOME/Library/Android/sdk"
+
+### Poetry ###
+export PATH="$HOME/.local/bin:$PATH"
