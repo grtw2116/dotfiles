@@ -1,7 +1,7 @@
 brew "neovim"       # エディタ
+brew "node"         # Node.js
 brew "bat"          # catの改良版
 brew "fd"           # findの改良版．telescope.nvimで必要
-brew "tldr"         # コマンドの使い方を手短に解説
 brew "tig"          # Gitクライアント
 brew "tree"         # ディレクトリ構造を木形式で出力
 brew "mas"          # Mac App Storeからインストールしたアプリを管理
