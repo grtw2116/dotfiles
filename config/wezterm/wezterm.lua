@@ -51,8 +51,8 @@ config.keys = {
 	{ key = "j", mods = "LEADER", action = act.ActivatePaneDirection("Down") },
 	{ key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
 	{ key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
-	{ key = "-", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
-	{ key = "|", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	{ key = "v", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = "x", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	-- <C-l>: ランチャー表示
 	{ key = "l", mods = "CMD", action = act.ShowLauncher },
 }
