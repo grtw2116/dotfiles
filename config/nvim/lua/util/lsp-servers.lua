@@ -8,7 +8,7 @@ lsp_servers.list = {
 	"jdtls",
 	"html",
 	"cssls",
-	"pylsp",
+	"pyright",
 	"jsonls",
 	"dockerls",
 	"docker_compose_language_service",

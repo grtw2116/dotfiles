@@ -33,6 +33,10 @@ for _, name in ipairs(lsp_servers) do
 				},
 			},
 		})
+	elseif name == "pyright" then
+		lspconfig["pyright"].setup({
+			capabilities = capabilities,
+		})
 	else
 		lspconfig[name].setup({ capabilities = capabilities })
 	end
