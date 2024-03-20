@@ -327,6 +327,19 @@ require("lazy").setup({
 		end,
 	},
 
+	-- GitHub Copilot Chat
+	{
+		"CopilotC-Nvim/CopilotChat.nvim",
+		branch = "canary",
+		config = function()
+			require("plugin-config/copilot-chat")
+		end,
+		dependencies = {
+			{ "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+			{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+		},
+	},
+
 	-- インデント幅を自動検知
 	"tpope/vim-sleuth",
 
@@ -403,18 +416,6 @@ require("lazy").setup({
 		"folke/which-key.nvim",
 		config = function()
 			require("plugin-config/which-key")
-		end,
-	},
-
-	-- ChatGPT
-	{
-		"dpayne/CodeGPT.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-		},
-		config = function()
-			require("plugin-config/codegpt")
 		end,
 	},
 
