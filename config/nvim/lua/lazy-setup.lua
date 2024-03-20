@@ -224,17 +224,17 @@ require("lazy").setup({
 	},
 
 	-- ファンシーなUI
-	-- {
-	-- 	"folke/noice.nvim",
-	-- 	event = "VeryLazy",
-	-- 	config = function()
-	-- 		require("plugin-config/noice")
-	-- 	end,
-	-- 	dependencies = {
-	-- 		"MunifTanjim/nui.nvim",
-	-- 		"rcarriga/nvim-notify",
-	-- 	},
-	-- },
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("plugin-config/noice")
+		end,
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
+	},
 
 	-- --------------------------------------------------------------
 	-- 移動系
@@ -318,30 +318,20 @@ require("lazy").setup({
 	},
 
 	-- Copilot
-	-- {
-	-- 	"github/copilot.vim",
-	-- 	config = function()
-	-- 		require("plugin-config/copilot")
-	-- 	end,
-	-- },
 	{
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
 		event = "InsertEnter",
 		config = function()
-			require("copilot").setup({
-				suggestion = {
-					auto_trigger = true,
-					keymap = {
-						accept = "<Tab>",
-					},
-				},
-			})
+			require("plugin-config/copilot")
 		end,
 	},
 
 	-- インデント幅を自動検知
 	"tpope/vim-sleuth",
+
+	-- TypeScriptのエラーを読みやすく
+	"dmmulroy/ts-error-translator.nvim",
 
 	-- --------------------------------------------------------------
 	-- リーディング支援
@@ -355,6 +345,12 @@ require("lazy").setup({
 		end,
 	},
 
+	-- "TODO"などに色付け
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {},
+	},
 	-- --------------------------------------------------------------
 	-- 言語固有プラグイン
 	-- --------------------------------------------------------------

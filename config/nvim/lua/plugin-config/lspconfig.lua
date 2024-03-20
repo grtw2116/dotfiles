@@ -1,16 +1,21 @@
 -- --------------------------------------------------------------
 -- アイコン設定
 -- --------------------------------------------------------------
--- local signs = {
--- 	Error = " ",
--- 	Warn = " ",
--- 	Hint = " ",
--- 	Info = " ",
--- }
--- for type, icon in pairs(signs) do
--- 	local hl = "DiagnosticSign" .. type
--- 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
--- end
+local signs = {
+	Error = "",
+	Warning = "",
+	Hint = "",
+	Information = "",
+}
+
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 
 -- --------------------------------------------------------------
 -- LSPサーバ読み込み

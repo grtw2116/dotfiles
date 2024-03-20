@@ -1,5 +1,11 @@
-vim.cmd([[
-let g:copilot_filetypes = {
-    \ 'tex': v:false,
-    \ }
-]])
+require("copilot").setup({
+	suggestion = {
+		auto_trigger = true,
+		keymap = {
+			open = "<leader>c",
+		},
+	},
+	filetypes = {
+		tex = false,
+	},
+})
