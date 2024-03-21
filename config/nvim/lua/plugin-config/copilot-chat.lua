@@ -1,29 +1,29 @@
 -- Copilot Chatウィンドウを開く
-vim.keymap.set("n", "<C-m>", ":CopilotChatToggle<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<C-m>", ":CopilotChatToggle<CR>", { noremap = true, silent = true })
 
 -- 選択したコードについて説明させる
-vim.keymap.set("n", "<leader>ce", ":CopilotChatExplain<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>ce", ":CopilotChatExplain<CR>", { noremap = true, silent = true })
 
 -- 選択したコードの単体テストを生成する
-vim.keymap.set("n", "<leader>ct", ":CopilotChatTests<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>ct", ":CopilotChatTests<CR>", { noremap = true, silent = true })
 
 -- 選択したコードのバグを修正させる
-vim.keymap.set("n", "<leader>cf", ":CopilotChatFix<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>cf", ":CopilotChatFix<CR>", { noremap = true, silent = true })
 
 -- 選択したコードのバグを読みやすくする
-vim.keymap.set("n", "<leader>co", ":CopilotChatOptimize<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>co", ":CopilotChatOptimize<CR>", { noremap = true, silent = true })
 
 -- 選択したコードのドキュメントを書かせる
-vim.keymap.set("n", "<leader>cd", ":CopilotChatDocs<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>cd", ":CopilotChatDocs<CR>", { noremap = true, silent = true })
 
 -- エラーに基づき選択したコードを修正させる
-vim.keymap.set("n", "<leader>cg", ":CopilotChatFixDiagnostic<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>cg", ":CopilotChatFixDiagnostic<CR>", { noremap = true, silent = true })
 
 -- 差分を元にコミットメッセージを生成する
-vim.keymap.set("n", "<leader>cc", ":CopilotChatCommit<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>cc", ":CopilotChatCommit<CR>", { noremap = true, silent = true })
 
 -- ステージ済みの差分を元にコミットメッセージを生成する
-vim.keymap.set("n", "<leader>cs", ":CopilotChatCommitStaged<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>cs", ":CopilotChatCommitStaged<CR>", { noremap = true, silent = true })
 
 local select = require("CopilotChat.select")
 
