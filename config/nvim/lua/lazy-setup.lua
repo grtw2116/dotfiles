@@ -260,16 +260,28 @@ require("lazy").setup({
 	-- ファイル操作系
 	-- --------------------------------------------------------------
 	-- ファイラー
+	-- {
+	-- 	"nvim-neo-tree/neo-tree.nvim",
+	-- 	branch = "v3.x",
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-tree/nvim-web-devicons",
+	-- 		"MunifTanjim/nui.nvim",
+	-- 	},
+	-- 	config = function()
+	-- 		require("plugin-config/neo-tree")
+	-- 	end,
+	-- },
+
 	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
+		"nvim-tree/nvim-tree.lua",
+		version = "*",
+		lazy = false,
 		dependencies = {
-			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
 		},
 		config = function()
-			require("plugin-config/neo-tree")
+			require("plugin-config/nvim-tree")
 		end,
 	},
 
