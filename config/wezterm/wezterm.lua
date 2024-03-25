@@ -21,13 +21,20 @@ end
 
 function scheme_for_appearance(appearance)
 	if appearance:find("Dark") then
-		return "Tokyo Night"
+		return "Tokyo Night Storm"
 	else
 		return "Tokyo Night Day"
 	end
 end
 
+-- config.color_scheme = "tokyonight.toml"
+
+-- local colors, metadata = wezterm.color.load_scheme("$HOME/.config/wezterm/colors/tokyonight.toml")
+-- config.color_scheme = colors
+
 config.color_scheme = scheme_for_appearance(get_appearance())
+
+config.use_fancy_tab_bar = false
 
 config.font = wezterm.font_with_fallback({
 	"Moralerspace Argon NF",
