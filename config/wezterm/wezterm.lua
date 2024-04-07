@@ -27,14 +27,20 @@ function scheme_for_appearance(appearance)
 	end
 end
 
--- config.color_scheme = "tokyonight.toml"
+config.window_frame = {
+	font = wezterm.font({ family = "Moralerspace Argon NF", weight = "Bold" }),
+	font_size = 12.0,
+	active_titlebar_bg = "#292e42",
+	inactive_titlebar_bg = "#292e42",
+}
 
--- local colors, metadata = wezterm.color.load_scheme("$HOME/.config/wezterm/colors/tokyonight.toml")
--- config.color_scheme = colors
+config.native_macos_fullscreen_mode = true
 
-config.color_scheme = scheme_for_appearance(get_appearance())
+-- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 config.use_fancy_tab_bar = false
+
+config.color_scheme = scheme_for_appearance(get_appearance())
 
 config.font = wezterm.font_with_fallback({
 	"Moralerspace Argon NF",
