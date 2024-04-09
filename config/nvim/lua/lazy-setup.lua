@@ -251,12 +251,27 @@ require("lazy").setup({
 	-- 囲う処理がしやすくなる
 	"tpope/vim-surround",
 
+	-- コンテキストに応じてコメントアウトの方法を変える
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		config = function()
+			require("ts_context_commentstring").setup({
+				enable_autocmd = false,
+			})
+		end,
+	},
+
 	-- コメントアウト
 	{
 		"numToStr/Comment.nvim",
 		config = function()
-			require("Comment").setup()
+			require("Comment").setup({
+				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+			})
 		end,
+		dependencies = {
+			"JoosepAlviste/nvim-ts-context-commentstring",
+		},
 	},
 
 	-- --------------------------------------------------------------
@@ -401,13 +416,38 @@ require("lazy").setup({
 	},
 
 	-- Java
-	{
-		"mfussenegger/nvim-jdtls",
-		ft = "java",
-		config = function()
-			require("plugin-config/nvim-jdtls")
-		end,
-	},
+	-- {
+	-- 	"mfussenegger/nvim-jdtls",
+	-- 	ft = "java",
+	-- 	config = function()
+	-- 		require("plugin-config/nvim-jdtls")
+	-- 	end,
+	-- },
+
+	-- {
+	-- 	"nvim-java/nvim-java",
+	-- 	dependencies = {
+	-- 		"nvim-java/lua-async-await",
+	-- 		"nvim-java/nvim-java-core",
+	-- 		"nvim-java/nvim-java-test",
+	-- 		"nvim-java/nvim-java-dap",
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		"neovim/nvim-lspconfig",
+	-- 		"mfussenegger/nvim-dap",
+	-- 		{
+	-- 			"williamboman/mason.nvim",
+	-- 			opts = {
+	-- 				registries = {
+	-- 					"github:nvim-java/mason-registry",
+	-- 					"github:mason-org/mason-registry",
+	-- 				},
+	-- 			},
+	-- 		},
+	-- 	},
+	-- 	config = function()
+	-- 		require("java").setup()
+	-- 	end,
+	-- },
 
 	-- --------------------------------------------------------------
 	-- スニペット
