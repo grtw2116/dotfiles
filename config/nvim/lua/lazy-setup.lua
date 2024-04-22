@@ -304,6 +304,16 @@ require("lazy").setup({
 	},
 
 	-- --------------------------------------------------------------
+	-- 標準機能拡張系
+	-- --------------------------------------------------------------
+	-- ターミナル
+	{
+		"akinsho/nvim-toggleterm.lua",
+		version = "*",
+		config = true,
+	},
+
+	-- --------------------------------------------------------------
 	-- コーディング関連
 	-- --------------------------------------------------------------
 	-- 括弧を自動で閉じる
@@ -416,13 +426,10 @@ require("lazy").setup({
 	},
 
 	-- Java
-	-- {
-	-- 	"mfussenegger/nvim-jdtls",
-	-- 	ft = "java",
-	-- 	config = function()
-	-- 		require("plugin-config/nvim-jdtls")
-	-- 	end,
-	-- },
+	{
+		"mfussenegger/nvim-jdtls",
+		ft = "java",
+	},
 
 	-- {
 	-- 	"nvim-java/nvim-java",
@@ -478,6 +485,17 @@ require("lazy").setup({
 		"f-person/auto-dark-mode.nvim",
 		config = function()
 			require("plugin-config/auto-dark-mode")
+		end,
+	},
+
+	{
+		"startup-nvim/startup.nvim",
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+			"nvim-lua/plenary.nvim",
+		},
+		config = function()
+			require("startup").setup()
 		end,
 	},
 })

@@ -2,7 +2,7 @@ require("copilot").setup({
 	suggestion = {
 		auto_trigger = true,
 		keymap = {
-			open = "<leader>c",
+			accept = "<M-;>",
 		},
 	},
 	filetypes = {

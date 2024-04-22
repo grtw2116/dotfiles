@@ -25,12 +25,17 @@ vim.keymap.set({ "n", "v" }, "<leader>cc", ":CopilotChatCommit<CR>", { noremap =
 -- ステージ済みの差分を元にコミットメッセージを生成する
 vim.keymap.set({ "n", "v" }, "<leader>cs", ":CopilotChatCommitStaged<CR>", { noremap = true, silent = true })
 
+-- その場で質問する
+vim.keymap.set({ "n", "v" }, "<leader>qc", function()
+	local input = vim.fn.input("Quick Chat: ")
+	if input ~= "" then
+		require("CopilotChat").ask("Quick Chat", { selection = require("CopilotChat.select").buffer })
+	end
+end, { noremap = true, silent = true })
+
 local select = require("CopilotChat.select")
 
 require("CopilotChat").setup({
-	selection = function(source)
-		return select.visual(source) or select.line(source)
-	end,
 	prompts = {
 		Explain = {
 			prompt = "/COPILOT_EXPLAIN 上記のコードについて、テキストの段落としての説明を書いてください。",

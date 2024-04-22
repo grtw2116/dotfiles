@@ -5,7 +5,6 @@ lsp_servers.list = {
 	"rust_analyzer",
 	"lua_ls",
 	"bashls",
-	"jdtls",
 	"html",
 	"cssls",
 	"pyright",
