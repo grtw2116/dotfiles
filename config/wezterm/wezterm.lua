@@ -69,6 +69,8 @@ config.keys = {
 	{ key = "x", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	-- <C-l>: ランチャー表示
 	{ key = "l", mods = "CMD", action = act.ShowLauncher },
+	-- Windows / Linux環境では AltキーをSuperキーとして使う
+	{ key = "Alt", action = act.SendKey({ key = "Super" }) },
 }
 
 -- ssh設定
