@@ -72,8 +72,18 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh --docky
 
 # 背景
-exec --no-startup-id sleep 1 && feh --bg-fill $HOME/Pictures/wallpaper.jpg
+exec --no-startup-id sleep 1 && feh --bg-fill $HOME/.wallpaper
 
+# スクリーンショット
+# INFO: 必要なパッケージ: main, xclip, xdotool
+bindsym Print exec --no-startup-id maim "$HOME/Pictures/$(date -Isecond)"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/$(date -Isecond)"
+bindsym Shift+Print exec --no-startup-id maim --select "$HOME/Pictures/$(date -Isecond)"
+
+# スクリーンショットをクリップボードにコピー
+bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
 
 ################################
@@ -90,7 +100,7 @@ bindsym $mod+Return exec wezterm
 bindsym $mod+Shift+q kill
 
 # <M-d>でプログラムランチャーを起動
-bindsym $mod+d exec --no-startup-id "rofi -show combi -dpi 150"
+bindsym $mod+d exec --no-startup-id "rofi -show combi -dpi 120"
 
 # <M-hjkl>でウィンドウのフォーカスを移動
 bindsym $mod+h focus left
