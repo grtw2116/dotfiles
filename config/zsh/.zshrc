@@ -8,6 +8,7 @@ fi
 ### emacs風キーバインド ###
 bindkey -e                       # emacs風キーバインドを有効にする
 
+
 ### ghqとpecoの連携 ###
 # <C-g>でghq listをpecoで絞り込み、選択したディレクトリに移動する
 # ref. https://zenn.dev/obregonia1/articles/e82868e8f66793
@@ -91,11 +92,8 @@ zinit light paulirish/git-open                              # `git open`でリ�
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
-### nvm 設定 (mac) ###
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+### OS固有設定 ###
+[ -f $HOME/.config/zsh/.zshrc_`uname` ] && . $HOME/.config/zsh/.zshrc_`uname`
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
