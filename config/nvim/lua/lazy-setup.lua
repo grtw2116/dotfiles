@@ -431,6 +431,15 @@ require("lazy").setup({
 		ft = "java",
 	},
 
+	-- Markdown
+	{
+		"MeanderingProgrammer/markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		config = function()
+			require("render-markdown").setup({})
+		end,
+	},
+
 	-- {
 	-- 	"nvim-java/nvim-java",
 	-- 	dependencies = {
