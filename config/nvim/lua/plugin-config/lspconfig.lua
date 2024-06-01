@@ -65,7 +65,7 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
 --
 -- gD: 定義に移動
 -- gd: 定義に移動
--- K: ホバー
+-- K: ホバー（pretty_hoverを使用）
 -- gi: 実装に移動
 -- <C-k>: シグネチャヘルプ
 -- <leader>wa: ワークスペースフォルダを追加
@@ -83,7 +83,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = ev.buf }
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+		-- vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+		vim.keymap.set("n", "K", require("pretty_hover").hover, opts)
 		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 		vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
