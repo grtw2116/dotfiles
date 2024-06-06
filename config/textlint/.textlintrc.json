@@ -5,11 +5,9 @@
                 "periodMark": "．"
             }
         },
-        "preset-ja-spacing": true,
         "preset-ja-engineering-paper": true
     },
-    "plugins": ["latex2e"],
-    "filters": {
-        "comments": true
-    }
+    "plugins": [
+        "latex2e"
+    ]
 }

@@ -96,12 +96,12 @@ require("lazy").setup({
 
 	-- 疑似LSP
 	-- deprecatedとなったため削除
-	-- {
-	--     'jose-elias-alvarez/null-ls.nvim',
-	--     config = function()
-	--         require("plugin-config/null-ls")
-	--     end
-	-- },
+	{
+		"nvimtools/none-ls.nvim",
+		config = function()
+			require("plugin-config/none-ls")
+		end,
+	},
 
 	-- LSPの起動状況を表示
 	-- 現在開発者によってリライトされているため，破壊的変更を防ぐためにlegacyタグを指定
