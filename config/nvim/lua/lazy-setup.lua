@@ -15,10 +15,19 @@ require("lazy").setup({
 	-- 		vim.cmd("colorscheme everforest")
 	-- 	end,
 	-- },
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	config = function()
+	-- 		require("plugin-config/tokyonight")
+	-- 	end,
+	-- },
+
 	{
-		"folke/tokyonight.nvim",
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
 		config = function()
-			require("plugin-config/tokyonight")
+			require("plugin-config/catppuccin")
 		end,
 	},
 
@@ -189,6 +198,7 @@ require("lazy").setup({
 	-- バッファライン
 	{
 		"akinsho/bufferline.nvim",
+		after = "catppuccin",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			require("plugin-config/nvim-bufferline")
