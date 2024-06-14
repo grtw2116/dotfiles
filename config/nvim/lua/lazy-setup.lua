@@ -197,13 +197,8 @@ require("lazy").setup({
 
 	-- winbar
 	{
-		"utilyre/barbecue.nvim",
-		name = "barbecue",
-		version = "*",
-		dependencies = {
-			"SmiteshP/nvim-navic",
-			"nvim-tree/nvim-web-devicons",
-		},
+		"Bekaboo/dropbar.nvim",
+		dependencies = { "nvim-telescope/telescope-fzf-native.nvim" },
 	},
 
 	-- ハイライト
