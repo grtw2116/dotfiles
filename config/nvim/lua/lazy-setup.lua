@@ -105,12 +105,12 @@ require("lazy").setup({
 
 	-- LSPの起動状況を表示
 	-- 現在開発者によってリライトされているため，破壊的変更を防ぐためにlegacyタグを指定
-	{
-		"j-hui/fidget.nvim",
-		config = function()
-			require("fidget").setup()
-		end,
-	},
+	-- {
+	-- 	"j-hui/fidget.nvim",
+	-- 	config = function()
+	-- 		require("fidget").setup()
+	-- 	end,
+	-- },
 
 	-- LSPのUIを提供
 	{
