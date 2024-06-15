@@ -15,10 +15,19 @@ require("lazy").setup({
 	-- 		vim.cmd("colorscheme everforest")
 	-- 	end,
 	-- },
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	config = function()
+	-- 		require("plugin-config/tokyonight")
+	-- 	end,
+	-- },
+
 	{
-		"folke/tokyonight.nvim",
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
 		config = function()
-			require("plugin-config/tokyonight")
+			require("plugin-config/catppuccin")
 		end,
 	},
 
@@ -105,12 +114,12 @@ require("lazy").setup({
 
 	-- LSPの起動状況を表示
 	-- 現在開発者によってリライトされているため，破壊的変更を防ぐためにlegacyタグを指定
-	{
-		"j-hui/fidget.nvim",
-		config = function()
-			require("fidget").setup()
-		end,
-	},
+	-- {
+	-- 	"j-hui/fidget.nvim",
+	-- 	config = function()
+	-- 		require("fidget").setup()
+	-- 	end,
+	-- },
 
 	-- LSPのUIを提供
 	{
@@ -189,6 +198,7 @@ require("lazy").setup({
 	-- バッファライン
 	{
 		"akinsho/bufferline.nvim",
+		after = "catppuccin",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			require("plugin-config/nvim-bufferline")
@@ -197,13 +207,8 @@ require("lazy").setup({
 
 	-- winbar
 	{
-		"utilyre/barbecue.nvim",
-		name = "barbecue",
-		version = "*",
-		dependencies = {
-			"SmiteshP/nvim-navic",
-			"nvim-tree/nvim-web-devicons",
-		},
+		"Bekaboo/dropbar.nvim",
+		dependencies = { "nvim-telescope/telescope-fzf-native.nvim" },
 	},
 
 	-- ハイライト
