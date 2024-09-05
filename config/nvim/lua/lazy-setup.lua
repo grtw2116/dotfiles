@@ -245,6 +245,7 @@ require("lazy").setup({
 		config = function()
 			require("plugin-config/noice")
 		end,
+		tag = "v4.4.7",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
 			"rcarriga/nvim-notify",
