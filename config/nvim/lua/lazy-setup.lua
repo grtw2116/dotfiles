@@ -327,6 +327,14 @@ require("lazy").setup({
 		config = function()
 			require("plugin-config/nvim-tree")
 		end,
+		keys = {
+			{
+				"<C-n>",
+				"<cmd>NvimTreeToggle<CR>",
+				mode = "n",
+				desc = "Toggle NvimTree",
+			},
+		},
 	},
 
 	-- --------------------------------------------------------------
