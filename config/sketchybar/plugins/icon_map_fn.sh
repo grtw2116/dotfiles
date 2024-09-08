@@ -249,7 +249,7 @@ function __icon_map() {
    "Logseq")
         icon_result=":logseq:"
         ;;
-   "Canary Mail" | "HEY" | "Mail" | "Mailspring" | "MailMate" | "邮件")
+   "Canary Mail" | "HEY" | "Mail" | "Mailspring" | "MailMate" | "邮件" | "メール")
         icon_result=":mail:"
         ;;
    "MAMP" | "MAMP PRO")
@@ -303,7 +303,7 @@ function __icon_map() {
    "Mullvad Browser")
         icon_result=":mullvad_browser:"
         ;;
-   "Music" | "音乐" | "Musique")
+   "Music" | "音乐" | "Musique" | "ミュージック")
         icon_result=":music:"
         ;;
    "Neovide" | "neovide")

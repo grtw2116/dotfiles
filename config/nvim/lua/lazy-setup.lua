@@ -76,7 +76,10 @@ require("lazy").setup({
 	"hrsh7th/cmp-calc",
 
 	-- luaのneovim APIを補完
-	"folke/neodev.nvim",
+	{
+		"folke/lazydev.nvim",
+		ft = "lua",
+	},
 
 	-- ポータブルLSPインストーラ
 	{
@@ -86,7 +89,7 @@ require("lazy").setup({
 		end,
 	},
 
-	-- Masonとlsp-configの橋渡し
+	-- Masonとlspconfigの橋渡し
 	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
@@ -102,24 +105,6 @@ require("lazy").setup({
 			require("plugin-config/lspconfig")
 		end,
 	},
-
-	-- 疑似LSP
-	-- deprecatedとなったため削除
-	{
-		"nvimtools/none-ls.nvim",
-		config = function()
-			require("plugin-config/none-ls")
-		end,
-	},
-
-	-- LSPの起動状況を表示
-	-- 現在開発者によってリライトされているため，破壊的変更を防ぐためにlegacyタグを指定
-	-- {
-	-- 	"j-hui/fidget.nvim",
-	-- 	config = function()
-	-- 		require("fidget").setup()
-	-- 	end,
-	-- },
 
 	-- LSPのUIを提供
 	{
@@ -238,7 +223,10 @@ require("lazy").setup({
 		end,
 	},
 
-	-- ファンシーなUI
+	-- ファンシーな選択・入力UI
+	"stevearc/dressing.nvim",
+
+	-- ファンシーな通知UI
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
@@ -299,6 +287,9 @@ require("lazy").setup({
 			"JoosepAlviste/nvim-ts-context-commentstring",
 		},
 	},
+
+	-- コメント整形
+	"godlygeek/tabular",
 
 	-- --------------------------------------------------------------
 	-- ファイル操作系
@@ -466,13 +457,26 @@ require("lazy").setup({
 	},
 
 	-- Markdown
-	{
-		"MeanderingProgrammer/markdown.nvim",
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		config = function()
-			require("render-markdown").setup({})
-		end,
-	},
+	-- {
+	-- 	"MeanderingProgrammer/markdown.nvim",
+	-- 	dependencies = { "nvim-treesitter/nvim-treesitter" },
+	-- 	config = function()
+	-- 		require("render-markdown").setup({})
+	-- 	end,
+	-- },
+
+	-- PlantUML
+	-- {
+	-- 	"https://gitlab.com/itaranto/plantuml.nvim",
+	-- 	version = "*",
+	-- 	config = function()
+	-- 		require("plantuml").setup({
+	-- 			renderer = {
+	-- 				type = "image",
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
 
 	-- {
 	-- 	"nvim-java/nvim-java",
@@ -540,5 +544,10 @@ require("lazy").setup({
 		config = function()
 			require("startup").setup()
 		end,
+	},
+	{
+		"m4xshen/hardtime.nvim",
+		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+		opts = {},
 	},
 })

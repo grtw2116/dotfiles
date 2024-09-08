@@ -1,0 +1,17 @@
+let mapleader = " "
+
+" plugins
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'toppe/vim-commentary'
+
+" key mappings
+nmap gi <Action>(GotoImplementation)
+nmap gr <Action>(FindUsages)
+nmap <leader>ca <Action>(GotoAction)
+nmap <C-p> <Action>(SearchEverywhere)
+nmap <leader>rn <Action>(RenameElement)
+nmap [b <Action>(PreviousTab)
+nmap ]b <Action>(NextTab)
+
+nmap <C-n> :NERDTreeToggle<CR>

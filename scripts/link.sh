@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 source "$(dirname "$0")/common-var.sh"
 
 mkdir -p "$XDG_CONFIG_HOME"

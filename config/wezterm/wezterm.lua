@@ -54,6 +54,9 @@ config.window_padding = {
 	bottom = 0,
 }
 
+config.window_background_opacity = 0.85
+config.macos_window_background_blur = 20
+
 config.font_size = 12.0
 
 -- <C-q>: Leaderキー
@@ -61,14 +64,22 @@ config.leader = { key = "s", mods = "CTRL", timeout_milliseconds = 2000 }
 
 local act = wezterm.action
 config.keys = {
-	{ key = "h",   mods = "LEADER",                        action = act.ActivatePaneDirection("Left") },
-	{ key = "j",   mods = "LEADER",                        action = act.ActivatePaneDirection("Down") },
-	{ key = "k",   mods = "LEADER",                        action = act.ActivatePaneDirection("Up") },
-	{ key = "l",   mods = "LEADER",                        action = act.ActivatePaneDirection("Right") },
-	{ key = "v",   mods = "LEADER",                        action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
-	{ key = "x",   mods = "LEADER",                        action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	{ key = "h", mods = "LEADER", action = act.ActivatePaneDirection("Left") },
+	{ key = "j", mods = "LEADER", action = act.ActivatePaneDirection("Down") },
+	{ key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
+	{ key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
+	{
+		key = "v",
+		mods = "LEADER",
+		action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
+	},
+	{
+		key = "x",
+		mods = "LEADER",
+		action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+	},
 	-- <C-l>: ランチャー表示
-	{ key = "l",   mods = "CMD",                           action = act.ShowLauncher },
+	{ key = "l", mods = "CMD", action = act.ShowLauncher },
 	-- Windows / Linux環境では AltキーをSuperキーとして使う
 	{ key = "Alt", action = act.SendKey({ key = "Super" }) },
 }

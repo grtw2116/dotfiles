@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 # dotfilesのレポジトリがあるパスを取得
 export DOT_DIR="$(cd "$(dirname "$0")" && pwd)"

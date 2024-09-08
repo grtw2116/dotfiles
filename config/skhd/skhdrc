@@ -1,45 +1,49 @@
 # focus window
-alt - x : yabai -m window --focus recent
 alt - h : yabai -m window --focus west
 alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
 alt - l : yabai -m window --focus east
-alt - n : ~/.scripts/yabai_next_window.sh
-alt - p : ~/.scripts/yabai_prev_window.sh
 
 # swap window
-shift + alt - x : yabai -m window --swap recent
 shift + alt - h : yabai -m window --swap west
 shift + alt - j : yabai -m window --swap south
 shift + alt - k : yabai -m window --swap north
 shift + alt - l : yabai -m window --swap east
 
-# move window
-shift + cmd - h : yabai -m window --warp west
-shift + cmd - j : yabai -m window --warp south
-shift + cmd - k : yabai -m window --warp north
-shift + cmd - l : yabai -m window --warp east
+# defines a new mode 'resize' with an on_enter command, that captures keypresses
+:: resize @ : yabai -m config active_window_opacity 1; yabai -m config normal_window_opacity 0.9;
 
-# move window
-shift + ctrl - a : yabai -m window --move rel:-20:0
-shift + ctrl - s : yabai -m window --move rel:0:20
-shift + ctrl - w : yabai -m window --move rel:0:-20
-shift + ctrl - d : yabai -m window --move rel:20:0
+# from 'default' mode, activate mode 'resize'
+# (this is the key combination you want to use to enter resize mode)
+alt - r ; resize
+
+# from 'resize' mode, activate mode 'default'
+# (this is the keypress required to leave resize mode)
+resize < escape ; default
+
+# equalize windows
+# resize < ctrl - 0 : yabai -m space --balance
 
 # increase window size
-shift + alt - a : yabai -m window --resize left:-20:0
-shift + alt - s : yabai -m window --resize bottom:0:20
-shift + alt - w : yabai -m window --resize top:0:-20
-shift + alt - d : yabai -m window --resize right:20:0
+resize < h : yabai -m window --resize left:-25:0
+resize < j : yabai -m window --resize bottom:0:25
+resize < k : yabai -m window --resize top:0:-25
+resize < l : yabai -m window --resize right:25:0
 
 # decrease window size
-shift + cmd - a : yabai -m window --resize left:20:0
-shift + cmd - s : yabai -m window --resize bottom:0:-20
-shift + cmd - w : yabai -m window --resize top:0:20
-shift + cmd - d : yabai -m window --resize right:-20:0
+resize < ctrl - h : yabai -m window --resize left:25:0
+resize < ctrl - j : yabai -m window --resize bottom:0:-25
+resize < ctrl - k : yabai -m window --resize top:0:25
+resize < ctrl - l : yabai -m window --resize right:-25:0
+
+# move window
+resize < cmd - left : yabai -m window --move rel:-25:0
+resize < cmd - down : yabai -m window -move rel:0:25
+resize < cmd - up : yabai -m window --move rel:0:-25
+resize < cmd - right : yabai -m window --move rel:25:0
 
 # rotate tree
-alt - r : yabai -m space --rotate 90
+# alt - r : yabai -m space --rotate 90
 
 # mirror tree y-axis
 alt - y : yabai -m space --mirror y-axis
@@ -111,4 +115,4 @@ ctrl + alt - 2 : yabai -m display --focus 2
 ## WezTerm
 alt - return : open -a "WezTerm"
 ## Google Chrome
-alt - b : open -a "Google Chrome"
+alt - b : open -a "Arc"

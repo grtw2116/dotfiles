@@ -99,5 +99,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- vim.keymap.set('n', '<leader>f', function()
 		--   vim.lsp.buf.format { async = true }
 		-- end, opts)
+
+		-- inlay hintsを有効化
+		vim.lsp.inlay_hint.enable(true)
 	end,
 })
