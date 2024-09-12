@@ -46,6 +46,11 @@ alias ga='git add'
 alias gm='git merge'
 alias gr='git rebase'
 
+# macOSの場合、lsのオプションが異なるのでエイリアスを設定
+if [ "$(uname)" = "Darwin" ]; then
+    alias ls='ls -G'
+fi
+
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
