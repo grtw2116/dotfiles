@@ -46,11 +46,11 @@ return {
 		keys = {
             -- stylua: ignore
             { "<C-m>", "<cmd>CopilotChatToggle<CR>", desc = "Toggle copilot chat" },
-			{ "<leader>ce", "<cmd>CopilotChatExplain<CR>", desc = "Explain selected code" },
-			{ "<leader>ct", "<cmd>CopilotChatTests<CR>", desc = "Generate unit tests for selected code" },
-			{ "<leader>cf", "<cmd>CopilotChatFix<CR>", desc = "Fix selected code" },
-			{ "<leader>co", "<cmd>CopilotChatOptimize<CR>", desc = "Optimize selected code" },
-			{ "<leader>cd", "<cmd>CopilotChatDocs<CR>", desc = "Write documentation for selected code" },
+			{ "<leader>ce", "<cmd>CopilotChatExplain<CR>", mode = "v", desc = "Explain selected code" },
+			{ "<leader>ct", "<cmd>CopilotChatTests<CR>", mode = "v", desc = "Generate unit tests for selected code" },
+			{ "<leader>cf", "<cmd>CopilotChatFix<CR>", mode = "v", desc = "Fix selected code" },
+			{ "<leader>co", "<cmd>CopilotChatOptimize<CR>", mode = "v", desc = "Optimize selected code" },
+			{ "<leader>cd", "<cmd>CopilotChatDocs<CR>", mode = "v", desc = "Write documentation for selected code" },
 			{ "<leader>cg", "<cmd>CopilotChatFixDiagnostic<CR>", desc = "Fix diagnostic issues in file" },
 			{ "<leader>cc", "<cmd>CopilotChatCommit<CR>", desc = "Generate commit message from unstaged changes" },
 			{ "<leader>cs", "<cmd>CopilotChatCommitStaged<CR>", desc = "Generate commit message from staged changes" },
