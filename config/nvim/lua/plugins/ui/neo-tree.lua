@@ -8,7 +8,7 @@ return {
 			"MunifTanjim/nui.nvim",
 		},
 		keys = {
-			{ "<C-n>", "<cmd>Neotree toggle<cr>", desc = "Toggle NeoTree" },
+			{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle NeoTree" },
 		},
 	},
 }
