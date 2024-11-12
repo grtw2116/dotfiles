@@ -24,7 +24,7 @@ return {
 	"hrsh7th/cmp-cmdline",
 
 	-- スニペットから補完をフェッチ
-	"saadparwaiz1/cmp_luasnip",
+	-- "saadparwaiz1/cmp_luasnip",
 
 	-- NeovimのLua APIから補完をフェッチ
 	"hrsh7th/cmp-nvim-lua",

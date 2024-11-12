@@ -11,11 +11,11 @@ return {
 					completion = cmp.config.window.bordered(),
 					documentation = cmp.config.window.bordered(),
 				},
-				snippet = {
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
-					end,
-				},
+				-- snippet = {
+				-- 	expand = function(args)
+				-- 		require("luasnip").lsp_expand(args.body)
+				-- 	end,
+				-- },
 				sources = {
 					{ name = "nvim_lsp" }, -- LSP
 					{ name = "nvim_lsp_signature_help" }, -- 関数のパラメータ
@@ -24,7 +24,7 @@ return {
 					{ name = "path" }, -- ファイルパス
 					{ name = "nvim_lua" }, -- NeovimのLua API
 					{ name = "lazydev" },
-					{ name = "luasnip" }, -- スニペット
+					-- { name = "luasnip" }, -- スニペット
 					{ name = "calc" }, -- 計算結果
 				},
 				mapping = cmp.mapping.preset.insert({
