@@ -9,7 +9,10 @@ return {
 			require("mason-lspconfig").setup_handlers({
 				-- デフォルトのハンドラ
 				function(server_name)
-					require("lspconfig")[server_name].setup({})
+					-- jdtlsはnvim-jdtlsを使うので、ここではセットアップしない
+					if server_name ~= "jdtls" then
+						require("lspconfig")[server_name].setup({})
+					end
 				end,
 			})
 		end,
