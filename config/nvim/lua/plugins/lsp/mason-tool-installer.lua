@@ -7,19 +7,20 @@ return {
 				"texlab",
 				"rust_analyzer",
 				"bashls",
-				"html",
-				"cssls",
 				"pyright",
-				"jsonls",
 				"dockerls",
 				"docker_compose_language_service",
 				"gradle_ls",
-				"tailwindcss",
-				-- "eslint",
 
 				-- Lua
 				"lua_ls",
 				"stylua",
+
+				-- Web
+				"tailwindcss",
+				"jsonls",
+				"html",
+				"cssls",
 			},
 		},
 	},
