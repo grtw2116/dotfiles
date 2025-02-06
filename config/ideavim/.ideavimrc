@@ -8,10 +8,12 @@ Plug 'toppe/vim-commentary'
 " key mappings
 nmap gi <Action>(GotoImplementation)
 nmap gr <Action>(FindUsages)
-nmap <leader>ca <Action>(GotoAction)
+nmap <leader>ca <Action>(ShowIntentionActions)
 nmap <C-p> <Action>(SearchEverywhere)
 nmap <leader>rn <Action>(RenameElement)
 nmap [b <Action>(PreviousTab)
 nmap ]b <Action>(NextTab)
+nmap [d <Action>(GotoPreviousError)
+nmap ]d <Action>(GotoNextError)
 
-nmap <C-n> :NERDTreeToggle<CR>
+nmap <leader>e :NERDTreeToggle<CR>
