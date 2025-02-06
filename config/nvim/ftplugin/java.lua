@@ -1,3 +1,8 @@
+-- vscodeの場合は何もしない
+if vim.g.vscode then
+	return
+end
+
 local jdtls = require("jdtls")
 
 -- LSPを起動
