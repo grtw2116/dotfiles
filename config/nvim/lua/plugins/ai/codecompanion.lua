@@ -28,6 +28,12 @@ return {
 				{ "n", "v" },
 				desc = "toggle codecompanion chat panel",
 			},
+			{
+				"ga",
+				"<cmd>CodeCompanionChat Add<cr>",
+				{ "v" },
+				desc = "Add selected text to current chat buffer",
+			},
 		},
 	},
 }

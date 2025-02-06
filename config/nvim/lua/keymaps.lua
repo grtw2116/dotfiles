@@ -4,3 +4,7 @@ vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { noremap = true, silent = true })
 
 -- ユーティリティ
 vim.keymap.set("n", "<leader>rp", "[[<cmd>%s/，/、/g | %s/．/。/g<cr>]]", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>rP", "[[<cmd>%s/、/，/g | %s/。/．/g<cr>]]", { noremap = true, silent = true })
+
+vim.keymap.set("v", "<leader>rp", "[[<cmd>s/，/、/g | %s/．/。/g<cr>]]", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>rP", "[[<cmd>s/、/，/g | %s/。/．/g<cr>]]", { noremap = true, silent = true })
