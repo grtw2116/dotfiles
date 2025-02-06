@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	{ import = "plugins.ai" },
 	{ import = "plugins.coding" },
 	{ import = "plugins.colorscheme" },
 	{ import = "plugins.completion" },
