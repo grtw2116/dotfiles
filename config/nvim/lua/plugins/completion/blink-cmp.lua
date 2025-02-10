@@ -9,6 +9,9 @@ return {
 			keymap = { preset = "default" },
 			sources = {
 				default = { "lsp", "path", "buffer" },
+				per_filetype = {
+					codecompanion = { "codecompanion" },
+				},
 			},
 			completion = {
 				menu = { border = "single" },
