@@ -5,6 +5,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
 		},
+		cmd = { "CodeCompanionChat", "CodeCompanionActions" },
 		opts = {
 			strategies = {
 				chat = {
