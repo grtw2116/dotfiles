@@ -9,9 +9,14 @@ return {
 			require("mason-lspconfig").setup_handlers({
 				-- デフォルトのハンドラ
 				function(server_name)
+					local capabilities = require("blink.cmp").get_lsp_capabilities()
 					-- jdtlsはnvim-jdtlsを使うので、ここではセットアップしない
 					if server_name ~= "jdtls" then
-						require("lspconfig")[server_name].setup({})
+						require("lspconfig")[server_name].setup({
+							config = {
+								capabilities = capabilities,
+							},
+						})
 					end
 				end,
 			})
