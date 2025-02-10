@@ -14,6 +14,9 @@ return {
 					adapter = "openai",
 				},
 			},
+			opts = {
+				language = "Japanese",
+			},
 		},
 		keys = {
 			{
