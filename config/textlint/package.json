@@ -1,7 +1,0 @@
-{
-  "devDependencies": {
-    "textlint-plugin-latex2e": "^1.2.1",
-    "textlint-rule-preset-ja-engineering-paper": "^1.0.4",
-    "textlint-rule-preset-ja-technical-writing": "^10.0.1"
-  }
-}
