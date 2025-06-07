@@ -11,10 +11,8 @@ let
     shfmt
     nixfmt-classic
     nodePackages.prettier
-    python313
     python313Packages.autopep8
     python313Packages.python-lsp-server
-    python313Packages.uv
   ];
 in {
   home = {
@@ -41,6 +39,8 @@ in {
       claude-code
       ffmpeg_6-full
       notion-app
+      python313
+      python313Packages.uv
     ];
   };
 
