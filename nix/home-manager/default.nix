@@ -11,6 +11,10 @@ let
     shfmt
     nixfmt-classic
     nodePackages.prettier
+    python313
+    python313Packages.autopep8
+    python313Packages.python-lsp-server
+    python313Packages.uv
   ];
 in {
   home = {
@@ -31,6 +35,12 @@ in {
       peco
       obsidian
       lua
+      tailscale
+      immersed
+      gdtoolkit_4
+      claude-code
+      ffmpeg_6-full
+      notion-app
     ];
   };
 
@@ -70,7 +80,7 @@ in {
         ll = "eza --icons always --long --all --git";
         tree = "eza --icons always --classify always --tree";
       };
-      initExtra = ''
+      initContent = ''
         function peco-src () {
           local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
           if [ -n "$selected_dir" ]; then
@@ -82,8 +92,12 @@ in {
         zle -N peco-src
         bindkey '^]' peco-src
       '';
-      envExtra =
-        "[ -f ~/.ANTHROPIC_API_KEY ] && export ANTHROPIC_API_KEY=$(cat ~/.ANTHROPIC_API_KEY)";
+      envExtra = ''
+        [ -f ~/.ANTHROPIC_API_KEY ] && export ANTHROPIC_API_KEY=$(cat ~/.ANTHROPIC_API_KEY)
+        [ -f ~/.DEEPL_API_KEY ] && export DEEPL_API_KEY=$(cat ~/.DEEPL_API_KEY)
+        [ -f ~/.GOOGLE_TRANSLATE_API_KEY ] && export GOOGLE_TRANSLATE_API_KEY=$(cat ~/.GOOGLE_TRANSLATE_API_KEY)
+        [ -f ~/.GOOGLE_GENERATIVE_AI_API_KEY ] && export GOOGLE_GENERATIVE_AI_API_KEY=$(cat ~/.GOOGLE_GENERATIVE_AI_API_KEY)
+      '';
     };
 
     home-manager = { enable = true; };

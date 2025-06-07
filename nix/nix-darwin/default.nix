@@ -10,6 +10,7 @@
 
   # システムの設定
   system = {
+    primaryUser = "grtw2116";
     stateVersion = 6;
     defaults = {
       NSGlobalDomain.AppleShowAllExtensions = true;
@@ -40,7 +41,14 @@
   homebrew = {
     enable = true;
     onActivation = { autoUpdate = true; };
-    casks = [ "ghostty" "logitech-options" "karabiner-elements" ];
+    casks = [
+      "ghostty"
+      "logitech-options"
+      "karabiner-elements"
+      "claude"
+      "godot"
+      "block-goose"
+    ];
   };
 }
 
