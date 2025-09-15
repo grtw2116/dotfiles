@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "macOS用Nix設定ファイル";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -21,9 +21,7 @@
   outputs = inputs@{ nixpkgs, home-manager, nix-darwin, nix-homebrew, ... }:
     let
       system = "aarch64-darwin";
-      overlays = [ (import ./nix/overlays/claude-code.nix) ];
       pkgs = import nixpkgs {
-        inherit system overlays;
         config.allowUnfree = true;
       };
       username = "grtw2116";
@@ -44,33 +42,22 @@
 
       # nix-darwin
       darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
-        system = system;
-        specialArgs = inputs;
+        inherit system specialArgs;
         modules = [
           # macOSの構成を管理するモジュール
-          ./nix/nix-darwin
+          ./nix/system.nix
 
-          # モジュール版home-manager
-          home-manager.darwinModules.home-manager
-          {
-            users.users.${username}.home = "/Users/${username}";
+          # システム全体 / homebrewでインストールするアプリケーション
+          ./nix/apps.nix
+
+          home-manager.darwinModules.home-manager {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.${username} = import ./nix/home-manager;
-            };
-          }
-
-          nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              enable = true;
-              enableRosetta = true;
-              user = "grtw2116";
+              users.${username} = import ./nix/home;
             };
           }
         ];
-        pkgs = pkgs;
       };
     };
 }
