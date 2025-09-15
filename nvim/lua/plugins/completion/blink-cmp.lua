@@ -8,7 +8,7 @@ return {
 		opts = {
 			keymap = { preset = "default" },
 			sources = {
-				default = { "lsp", "path", "buffer" },
+				default = { "lsp", "path", "buffer", "cmdline" },
 				per_filetype = {
 					codecompanion = { "codecompanion" },
 				},

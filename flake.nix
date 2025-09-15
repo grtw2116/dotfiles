@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,7 +21,11 @@
   outputs = inputs@{ nixpkgs, home-manager, nix-darwin, nix-homebrew, ... }:
     let
       system = "aarch64-darwin";
-      pkgs = import nixpkgs { inherit system; };
+      overlays = [ (import ./nix/overlays/claude-code.nix) ];
+      pkgs = import nixpkgs {
+        inherit system overlays;
+        config.allowUnfree = true;
+      };
       username = "grtw2116";
       hostname = "grtw2116s-macbook-air";
     in {
@@ -65,10 +70,7 @@
             };
           }
         ];
-        pkgs = import nixpkgs {
-          system = system;
-          config.allowUnfree = true;
-        };
+        pkgs = pkgs;
       };
     };
 }

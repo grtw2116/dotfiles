@@ -35,7 +35,7 @@
   };
 
   # フォント設定
-  fonts = { packages = with pkgs; [ moralerspace-nf ]; };
+  fonts = { packages = with pkgs; [ moralerspace ]; };
 
   # homebrewの設定
   homebrew = {
@@ -48,6 +48,9 @@
       "claude"
       "godot"
       "block-goose"
+      "virtual-desktop-streamer"
+      "anki"
+      "linearmouse"
     ];
   };
 }

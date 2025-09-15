@@ -1,14 +1,25 @@
 return {
 	{
 		dir = "~/Developer/github.com/grtw2116/hover-translate.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {
-			target_lang = "ja",
-			provider = "deepl",
-			api_key = os.getenv("DEEPL_API_KEY"),
+			translator = {
+				target_lang = "ja",
+				provider = "google",
+				api_key = os.getenv("GOOGLE_TRANSLATE_API_KEY"),
+			},
+			hover_window = {
+				border = "rounded",
+			},
 		},
-		config = function(_, opts)
-			require("hover_translate").setup(opts)
-			vim.keymap.set("n", "gK", require("hover_translate").hover, { desc = "LSP Hover (translated)" })
-		end,
+		keys = {
+			{
+				"gK",
+				function()
+					require("hover_translate").hover()
+				end,
+				desc = "LSP Hover (translated)",
+			},
+		},
 	},
 }

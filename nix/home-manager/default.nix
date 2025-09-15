@@ -1,7 +1,12 @@
 { pkgs, ... }:
 let
   username = "grtw2116";
-  lsp = with pkgs; [ nil lua-language-server ];
+  lsp = with pkgs; [
+    nil
+    lua-language-server
+    python313Packages.python-lsp-server
+    gopls
+  ];
   dap = with pkgs; [ vscode-js-debug ];
   formatter = with pkgs; [
     stylua
@@ -12,7 +17,6 @@ let
     nixfmt-classic
     nodePackages.prettier
     python313Packages.autopep8
-    python313Packages.python-lsp-server
   ];
 in {
   home = {
@@ -33,14 +37,19 @@ in {
       peco
       obsidian
       lua
-      tailscale
       immersed
       gdtoolkit_4
-      claude-code
+      claude-code-latest
       ffmpeg_6-full
       notion-app
       python313
       python313Packages.uv
+      go
+      wails
+      nodejs_22
+      jetbrains.rider
+      jetbrains-toolbox
+      google-chrome
     ];
   };
 
@@ -93,6 +102,7 @@ in {
         bindkey '^]' peco-src
       '';
       envExtra = ''
+        [ -f ~/.OPENAI_API_KEY ] && export OPENAI_API_KEY=$(cat ~/.OPENAI_API_KEY)
         [ -f ~/.ANTHROPIC_API_KEY ] && export ANTHROPIC_API_KEY=$(cat ~/.ANTHROPIC_API_KEY)
         [ -f ~/.DEEPL_API_KEY ] && export DEEPL_API_KEY=$(cat ~/.DEEPL_API_KEY)
         [ -f ~/.GOOGLE_TRANSLATE_API_KEY ] && export GOOGLE_TRANSLATE_API_KEY=$(cat ~/.GOOGLE_TRANSLATE_API_KEY)

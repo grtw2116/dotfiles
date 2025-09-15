@@ -13,6 +13,8 @@ return {
 				sh = { "shfmt" },
 				bash = { "shfmt" },
 				nix = { "nixfmt" },
+				gdscript = { "gdformat" },
+				go = { "gofmt" },
 			},
 			format_on_save = {
 				timeout_ms = 500,
