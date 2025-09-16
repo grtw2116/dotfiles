@@ -15,7 +15,6 @@
     lua
     immersed
     gdtoolkit_4
-    claude-code-latest
     ffmpeg_6-full
     notion-app
     python313
@@ -26,5 +25,7 @@
     jetbrains.rider
     jetbrains-toolbox
     google-chrome
+    mas
   ];
 }
+

@@ -1,5 +1,6 @@
-{ pkgs, ... }:
-{
+{ ... }: {
+  nixpkgs.config.allowUnfree = true;
+
   homebrew = {
     enable = true;
 
@@ -18,6 +19,7 @@
     # 重要：Apple Accountに紐付けるために、最初にApp Storeから**手動で**インストールする必要あり
     masApps = {
       Xcode = 497799835;
+      Kindle = 302584613;
     };
 
     # `brew install`でインストールするパッケージ
@@ -35,7 +37,8 @@
       "virtual-desktop-streamer"
       "anki"
       "linearmouse"
+      "microsoft-excel"
     ];
   };
-  }
 }
+

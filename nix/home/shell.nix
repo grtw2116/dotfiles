@@ -23,11 +23,10 @@
       bindkey '^]' peco-src
     '';
     envExtra = ''
-      [ -f ~/.OPENAI_API_KEY ] && export OPENAI_API_KEY=$(cat ~/.OPENAI_API_KEY)
-      [ -f ~/.ANTHROPIC_API_KEY ] && export ANTHROPIC_API_KEY=$(cat ~/.ANTHROPIC_API_KEY)
-      [ -f ~/.DEEPL_API_KEY ] && export DEEPL_API_KEY=$(cat ~/.DEEPL_API_KEY)
-      [ -f ~/.GOOGLE_TRANSLATE_API_KEY ] && export GOOGLE_TRANSLATE_API_KEY=$(cat ~/.GOOGLE_TRANSLATE_API_KEY)
-      [ -f ~/.GOOGLE_GENERATIVE_AI_API_KEY ] && export GOOGLE_GENERATIVE_AI_API_KEY=$(cat ~/.GOOGLE_GENERATIVE_AI_API_KEY)
+      for key in OPENAI_API_KEY ANTHROPIC_API_KEY DEEPL_API_KEY \
+                 GOOGLE_TRANSLATE_API_KEY GOOGLE_GENERATIVE_AI_API_KEY; do
+        [ -f ~/.$key ] && export $key=$(< ~/.$key)
+      done
     '';
   }
 }
