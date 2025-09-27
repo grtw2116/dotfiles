@@ -6,3 +6,4 @@ require("base") -- 基本設定
 require("keymaps") -- キーマップ設定
 require("terminal") -- ターミナル設定
 require("plugin") -- プラグイン設定
+require("lsp") -- LSP設定
