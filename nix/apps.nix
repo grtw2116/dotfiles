@@ -38,6 +38,7 @@
       "anki"
       "linearmouse"
       "microsoft-excel"
+      "sonobus"
     ];
   };
 }
