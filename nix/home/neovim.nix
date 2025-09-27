@@ -1,4 +1,4 @@
-{ pkgs, pyPkgs, ... }:
+{ pkgs, ... }:
 let
   lsp = with pkgs; [
     nil
