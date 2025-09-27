@@ -28,5 +28,5 @@
         [ -f ~/.$key ] && export $key=$(< ~/.$key)
       done
     '';
-  }
+  };
 }

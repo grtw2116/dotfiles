@@ -17,15 +17,15 @@ let
     nodePackages.prettier
     python313Packages.autopep8
   ];
-in
-{
+  extraPackages = lsp ++ dap ++ formatter;
+in {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    extraPackages = lsp ++ dap ++ formatter;
+    extraPackages = extraPackages;
     extraPython3Packages = pyPkgs: with pyPkgs; [ autopep8 ];
     withNodeJs = true;
   };
@@ -36,3 +36,4 @@ in
     recursive = true;
   };
 }
+
