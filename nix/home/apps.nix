@@ -4,17 +4,12 @@
   home.packages = with pkgs; [
     raycast
     lazygit
-    chatgpt
-    vscode
     eza
     ripgrep
-    slack
     ghq
     peco
-    obsidian
     lua
     immersed
-    gdtoolkit_4
     ffmpeg_6-full
     notion-app
     python313
@@ -22,10 +17,10 @@
     go
     wails
     nodejs_22
-    jetbrains.rider
-    jetbrains-toolbox
-    google-chrome
     mas
+    devcontainer
+    awscli2
+    sprites
+    gemini-cli
   ];
 }
-

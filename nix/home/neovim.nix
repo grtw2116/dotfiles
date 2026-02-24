@@ -13,7 +13,7 @@ let
     biome
     prettierd
     shfmt
-    nixfmt-classic
+    nixfmt
     nodePackages.prettier
     python313Packages.autopep8
   ];

@@ -17,10 +17,7 @@
 
     # masを使用してMac App Storeアプリをインストール
     # 重要：Apple Accountに紐付けるために、最初にApp Storeから**手動で**インストールする必要あり
-    masApps = {
-      Xcode = 497799835;
-      Kindle = 302584613;
-    };
+    # masApps = { Kindle = 302584613; };
 
     # `brew install`でインストールするパッケージ
     # brews = [
@@ -29,16 +26,20 @@
     # `brew install --cask`でインストールするパッケージ
     casks = [
       "ghostty"
-      "logitech-options"
       "karabiner-elements"
       "claude"
-      "godot"
-      "block-goose"
       "virtual-desktop-streamer"
       "anki"
       "linearmouse"
-      "microsoft-excel"
       "sonobus"
+      "antigravity"
+      "chatgpt"
+      "craft"
+      "raspberry-pi-imager"
+      "splashtop-business"
+      "visual-studio-code"
+      "obsidian"
+      "discord"
     ];
   };
 }
