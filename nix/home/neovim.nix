@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   lsp = with pkgs; [
     nil
@@ -6,7 +6,8 @@ let
     python313Packages.python-lsp-server
     gopls
   ];
-  dap = with pkgs; [ vscode-js-debug ];
+  dap = lib.optionals pkgs.stdenv.isLinux (with pkgs; [ vscode-js-debug ]) ++
+        lib.optionals pkgs.stdenv.isDarwin (with pkgs; [ vscode-js-debug ]);
   formatter = with pkgs; [
     stylua
     google-java-format
@@ -36,4 +37,3 @@ in {
     recursive = true;
   };
 }
-

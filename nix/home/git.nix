@@ -1,4 +1,4 @@
-{ username, ... }: {
+{ username, pkgs, lib, ... }: {
   programs.git = {
     enable = true;
     settings = {
@@ -6,8 +6,10 @@
         name = username;
         email = "15563588+grtw2116@users.noreply.github.com";
       };
-      ghq.root = "/Users/${username}/Developer";
+      ghq.root =
+        if pkgs.stdenv.isDarwin
+        then "/Users/${username}/Developer"
+        else "/home/${username}/Developer";
     };
   };
 }
-
