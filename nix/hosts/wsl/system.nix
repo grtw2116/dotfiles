@@ -37,6 +37,10 @@
 
   environment.systemPackages = [ ];
 
+  # Tailscale VPN
+  services.tailscale.enable = true;
+  networking.firewall.trustedInterfaces = [ "tailscale0" ];
+
   # zshをシステムシェルとして有効化
   programs.zsh.enable = true;
 

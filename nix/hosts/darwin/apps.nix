@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   nixpkgs.config.allowUnfree = true;
 
   homebrew = {
@@ -40,7 +41,8 @@
       "visual-studio-code"
       "obsidian"
       "discord"
+      "google-chrome"
+      "orbstack"
     ];
   };
 }
-
