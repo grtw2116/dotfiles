@@ -57,15 +57,13 @@
   # グラフィックス（OpenGL等）の有効化
   hardware.graphics.enable = true;
 
-  # パッケージ群のCUDAサポートをグローバルに有効化
-  nixpkgs.config.cudaSupport = true;
-
   # NVIDIAドライバーがNixOS側にないという警告を無視する（WSL用）
   hardware.nvidia-container-toolkit.suppressNvidiaDriverAssertion = true;
 
   # NixOS上のプログラムがWSLのマウントしたGPUライブラリを見つけられるようにする
+  # LD_LIBRARY_PATH は文字列で指定する必要がある
   environment.variables = {
-    LD_LIBRARY_PATH = [ "/usr/lib/wsl/lib" ];
+    LD_LIBRARY_PATH = "/usr/lib/wsl/lib";
   };
 
   system.stateVersion = "24.11";
