@@ -18,6 +18,7 @@
       devcontainer
       awscli2
       gemini-cli
+      claude-code
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [
       raycast

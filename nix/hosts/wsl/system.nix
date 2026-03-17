@@ -33,7 +33,11 @@
   users.users.${username} = {
     isNormalUser = true;
     shell = "/run/current-system/sw/bin/zsh";
+    extraGroups = [ "docker" ];
   };
+
+  # Docker
+  virtualisation.docker.enable = true;
 
   environment.systemPackages = [ ];
 
