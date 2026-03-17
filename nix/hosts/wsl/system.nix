@@ -29,6 +29,9 @@
     };
   };
 
+  # unfree パッケージのインストールを許可
+  nixpkgs.config.allowUnfree = true;
+
   # ユーザー設定
   users.users.${username} = {
     isNormalUser = true;
@@ -39,6 +42,9 @@
   # Docker
   virtualisation.docker.enable = true;
 
+  # DockerコンテナへのGPUパススルーを有効化
+  hardware.nvidia-container-toolkit.enable = true;
+
   environment.systemPackages = [ ];
 
   # Tailscale VPN
@@ -47,6 +53,20 @@
 
   # zshをシステムシェルとして有効化
   programs.zsh.enable = true;
+
+  # グラフィックス（OpenGL等）の有効化
+  hardware.graphics.enable = true;
+
+  # パッケージ群のCUDAサポートをグローバルに有効化
+  nixpkgs.config.cudaSupport = true;
+
+  # NVIDIAドライバーがNixOS側にないという警告を無視する（WSL用）
+  hardware.nvidia-container-toolkit.suppressNvidiaDriverAssertion = true;
+
+  # NixOS上のプログラムがWSLのマウントしたGPUライブラリを見つけられるようにする
+  environment.variables = {
+    LD_LIBRARY_PATH = [ "/usr/lib/wsl/lib" ];
+  };
 
   system.stateVersion = "24.11";
 }
