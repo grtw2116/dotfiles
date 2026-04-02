@@ -55,18 +55,17 @@
     };
   };
 
-  # GPU
   hardware = {
-    nvidia = {
-      modesetting.enable = true;
-      nvidiaSettings = false;
-      open = false;
-    };
     nvidia-container-toolkit = {
       enable = true;
       suppressNvidiaDriverAssertion = true;
     };
   };
+
+  # WSL2環境ではネイティブなNVIDIAドライバ(nvml)が存在しないため、
+  # nvidia-container-toolkit-cdi-generator がエラー終了します。
+  # このサービスを無効化することでビルドの失敗を防ぎます。
+  systemd.services.nvidia-container-toolkit-cdi-generator.enable = false;
 
   environment.systemPackages = [ ];
 
