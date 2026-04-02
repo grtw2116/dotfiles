@@ -6,8 +6,9 @@ let
     python313Packages.python-lsp-server
     gopls
   ];
-  dap = lib.optionals pkgs.stdenv.isLinux (with pkgs; [ vscode-js-debug ]) ++
-        lib.optionals pkgs.stdenv.isDarwin (with pkgs; [ vscode-js-debug ]);
+  dap =
+    lib.optionals pkgs.stdenv.isLinux (with pkgs; [ vscode-js-debug ])
+    ++ lib.optionals pkgs.stdenv.isDarwin (with pkgs; [ vscode-js-debug ]);
   formatter = with pkgs; [
     stylua
     google-java-format
@@ -15,11 +16,11 @@ let
     prettierd
     shfmt
     nixfmt
-    nodePackages.prettier
     python313Packages.autopep8
   ];
   extraPackages = lsp ++ dap ++ formatter;
-in {
+in
+{
   programs.neovim = {
     enable = true;
     defaultEditor = true;

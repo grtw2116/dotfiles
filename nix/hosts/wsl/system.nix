@@ -13,6 +13,7 @@
   wsl = {
     enable = true;
     defaultUser = username;
+    docker-desktop.enable = true;
   };
 
   # タイムゾーン設定
@@ -40,10 +41,32 @@
   };
 
   # Docker
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      daemon.settings = {
+        features.cdi = true;
+        cdi-spec-dirs = [ "/home/${username}/.cdi" ];
+      };
+    };
+    daemon.settings = {
+      features.cdi = true;
+    };
+  };
 
-  # DockerコンテナへのGPUパススルーを有効化
-  hardware.nvidia-container-toolkit.enable = true;
+  # GPU
+  hardware = {
+    nvidia = {
+      modesetting.enable = true;
+      nvidiaSettings = false;
+      open = false;
+    };
+    nvidia-container-toolkit = {
+      enable = true;
+      suppressNvidiaDriverAssertion = true;
+    };
+  };
 
   environment.systemPackages = [ ];
 
@@ -53,12 +76,6 @@
 
   # zshをシステムシェルとして有効化
   programs.zsh.enable = true;
-
-  # グラフィックス（OpenGL等）の有効化
-  hardware.graphics.enable = true;
-
-  # NVIDIAドライバーがNixOS側にないという警告を無視する（WSL用）
-  hardware.nvidia-container-toolkit.suppressNvidiaDriverAssertion = true;
 
   # NixOS上のプログラムがWSLのマウントしたGPUライブラリを見つけられるようにする
   # LD_LIBRARY_PATH は文字列で指定する必要がある
